@@ -1,0 +1,59 @@
+<ion-header>  
+  <ion-toolbar class="new-background-color" >    
+    <ion-title>Rastreie seu produto {{userName}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="end" name="log-out"></ion-icon>
+      </ion-button>           
+    </ion-buttons>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="ordersPag()">
+        <ion-icon slot="end" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>   
+  </ion-toolbar>   
+</ion-header>
+
+<ion-content >  
+  <div class="boxCardItem">
+    <ion-card class="ion-text-center card" style="width:100%">
+      <ion-card-title>Pedido Nº{{order.id}}</ion-card-title>
+      <ion-card-content> 
+        <ion-row class="margin-l">
+          <ion-card class="ion-text-center card itemDetail" style="width:100%" *ngFor="let item of items">
+            <ion-card-title class="titleItem">Item Nº {{ item.id}}</ion-card-title>
+            <ion-card-subtitle class="titleDescription">item: {{ item.description}}</ion-card-subtitle>           
+          </ion-card>
+        </ion-row>       
+      </ion-card-content>
+    </ion-card>
+  </div>  
+
+  <!--parte abaixo do tracking-->
+  <div class="container">
+    <div class="container2">
+      <ul class="proguessbar">
+        <li class="circle" id="first">
+          <ion-icon name="logo-html5" class="html" id="firstIcon"></ion-icon>
+        </li>
+        <li class="circle" id="second">
+          <ion-icon name="logo-html5" class="html" id="secondIcon"></ion-icon>
+        </li>
+        <li class="circle" id="thirth">
+          <ion-icon name="logo-html5" class="html" id="thirthIcon"></ion-icon>
+        </li>
+        <li class="circle" id="four">
+          <ion-icon name="logo-html5" class="html" id="fourIcon"></ion-icon>
+        </li>
+      </ul>
+
+      <div class="textAbaixo">
+        <strong>{{step0}}</strong>
+        <strong>{{step1}}</strong>
+        <strong>{{step1}}</strong>
+        <strong>{{step1}}</strong>
+      </div>
+    </div>
+  </div>
+</ion-content>

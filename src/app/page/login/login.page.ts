@@ -1,0 +1,68 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { IonSlides, ToastController } from '@ionic/angular';
+
+import { UserLogin } from 'src/app/interfaces/user';
+import { ApiService } from 'src/app/service/api.service';
+import { OverlayService } from 'src/app/service/overlay.service';
+
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
+})
+export class LoginPage implements OnInit {
+
+  @ViewChild(IonSlides) slides: IonSlides;
+
+  public userloginAndRegister: UserLogin = {}
+
+  public formLogin: FormGroup
+
+  constructor(
+    private fBuider: FormBuilder,
+    private overlayService: OverlayService,
+    private apiService: ApiService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.formLogin = this.fBuider.group({
+      'username': [this.userloginAndRegister.cpf,Validators.compose([Validators.required,Validators . pattern (/^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}|)$/)]),],
+      'password': [this.userloginAndRegister.password, [Validators.required, Validators.minLength(6)]],
+    })
+  }
+
+  ionViewWillEnter() {
+  }
+
+  segmentChanged(event: any) {
+    if (event.detail.value === "login") {
+      this.slides.slidePrev();//volta para o slid anterior ver na documentacao
+    } else {
+      this.slides.slideNext();//vai para o proximo slide
+    }
+  }
+
+  async login() {
+    const loading = this.overlayService.loading()
+    try {
+      const data = this.formLogin.value
+      this.apiService.login(data).then((result: any) => {
+        this.overlayService.toast({ message: 'Login Realizado com Sussesso' })
+        localStorage.setItem('token', JSON.stringify(result));
+        this.formLogin.reset()
+        this.router.navigateByUrl('/orders', {
+          state: { delivery: result }
+        })
+      })
+      console.log(this.formLogin.value)
+    }
+    finally {
+      (await loading).dismiss()
+    }
+  }
+  
+}//fecha classe da pagina

@@ -1,0 +1,161 @@
+.new-background-color{
+    --background: #342c5b; 
+    color: #fff;   
+}
+
+.card {
+    padding: 10px
+}
+
+.itemDetail{
+    height: 50px;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    
+}
+
+.titleItem{
+    font-size: 12px;
+}
+
+.titleDescription{
+    font-size: 10px;
+    
+}
+
+.boxCardItem{
+    background-color: #342c5b;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;    
+    padding: 1px;
+    margin-bottom: 10px;
+}
+
+
+//parte trackin abaixo
+
+.container{
+    //background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width:100%;
+    overflow:hidden;
+    margin: 0 ; 
+    height: 200px;
+      
+}
+
+.container2{
+    text-align: center;
+    //background-color: blue;
+}
+
+.html {
+    font-size: 1.8rem;
+    color: #ddd
+}
+
+.proguessbar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 1px;
+    max-width: 100%;
+    width:330px;
+    padding: 10px;
+    //background-color: gray;       
+}
+
+//criando circles
+.circle {
+    background-color: #fff;
+    color: #ddd;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border: 3px solid #ddd;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s ease;
+}
+
+//quando tal circulo estiver com a classe active
+.circle.active {
+    border-color: #342c5b ;    
+}
+
+.html.active{
+    color:#342c5b;
+}
+
+.circle.active{
+    background-color: #fff;   
+}
+//fim circulo nos icones
+
+//criando linha
+.proguessbar li:before{
+    //content: '';
+    width: 30px;
+    height: 30px;
+    float: left;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.proguessbar li::after{
+    content: '';
+    position: absolute;
+    width: 35%;
+    height: 2px;
+    background-color: #ddd;
+    top: 37px;
+    margin-right: 100px;
+    z-index: -1;
+}
+
+.proguessbar li:first-child::after{
+    content: none;
+}
+
+.proguessbar li.active{
+    color: #342c5b;
+}
+
+.proguessbar li.active::before{
+    border-color: #342c5b;
+}
+
+.proguessbar li.active + li::after{
+    background-color: #342c5b;
+}
+//fim do codigo da linha
+
+//#########################################
+//parte do texto
+.textAbaixo {//igual o proguessbar a configuracao
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width:330px;
+    padding: 20px;  
+    //background-color: yellowgreen;
+    padding-top: 0;
+    padding-bottom: 0; 
+    padding-left: 5px;   
+    padding-right: 5px;
+}
+
+

@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "4logTracking",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
