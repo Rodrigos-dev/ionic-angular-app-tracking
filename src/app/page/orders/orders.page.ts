@@ -13,6 +13,7 @@ export class OrdersPage implements OnInit {
   userName: string = ''
   orders: any[];
   order: any;
+  orderId: any = ''
 
   constructor(
     private apiService: ApiService,
@@ -31,6 +32,7 @@ export class OrdersPage implements OnInit {
     this.getUserData()
     this.getAllOrders(this.order.driver.cpf)
     console.log(this.order)
+    console.log('aaasasasa', this.orderId)
   }
 
   logout() {
@@ -58,10 +60,10 @@ export class OrdersPage implements OnInit {
   }
 
   async openTracking(id) {    
-    const loading = this.overlayService.loading()
-    console.log('asdf', this.orders)
+    this.orderId = id   
+    const loading = this.overlayService.loading()    
     try {
-      const order = (this.orders.find(result => result.id))      
+      const order = this.orders.find(result => result.id === this.orderId)          
       this.router.navigateByUrl('tracking', {
         state: { order: order }
       }).catch((error: any) => {

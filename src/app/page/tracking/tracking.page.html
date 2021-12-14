@@ -22,8 +22,9 @@
       <ion-card-content> 
         <ion-row class="margin-l">
           <ion-card class="ion-text-center card itemDetail" style="width:100%" *ngFor="let item of items">
-            <ion-card-title class="titleItem">Item Nº {{ item.id}}</ion-card-title>
-            <ion-card-subtitle class="titleDescription">item: {{ item.description}}</ion-card-subtitle>           
+            <ion-card-title class="titleItem">{{ item.description}}</ion-card-title>
+            <ion-card-subtitle class="titleDescription">Qtd:{{item.quantity}}</ion-card-subtitle> 
+            <ion-card-subtitle class="titleDescription">R$ {{item.price}}</ion-card-subtitle>          
           </ion-card>
         </ion-row>       
       </ion-card-content>
@@ -35,24 +36,24 @@
     <div class="container2">
       <ul class="proguessbar">
         <li class="circle" id="first">
-          <ion-icon name="logo-html5" class="html" id="firstIcon"></ion-icon>
+          <ion-icon name="checkmark-circle-outline" class="html" id="firstIcon"></ion-icon>          
         </li>
         <li class="circle" id="second">
-          <ion-icon name="logo-html5" class="html" id="secondIcon"></ion-icon>
+          <ion-icon name="download-outline" class="html" id="secondIcon"></ion-icon>          
         </li>
         <li class="circle" id="thirth">
-          <ion-icon name="logo-html5" class="html" id="thirthIcon"></ion-icon>
+          <ion-icon name="airplane-outline" class="html" id="thirthIcon"></ion-icon>                
         </li>
         <li class="circle" id="four">
-          <ion-icon name="logo-html5" class="html" id="fourIcon"></ion-icon>
+          <ion-icon name="home-outline" class="html" id="fourIcon"></ion-icon>          
         </li>
       </ul>
 
       <div class="textAbaixo">
         <strong>{{step0}}</strong>
         <strong>{{step1}}</strong>
-        <strong>{{step1}}</strong>
-        <strong>{{step1}}</strong>
+        <strong>{{step2}}</strong>
+        <strong>{{step3}}</strong>
       </div>
     </div>
   </div>
