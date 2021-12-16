@@ -1,0 +1,106 @@
+<ion-content class="swiper-no-swiping">
+
+  <div class="body">
+
+    <ion-header>
+      <div class="containerHeader">
+        <ion-toolbar class="new-background-color boxToolbar">
+
+          <div class="divImage">
+            <img class="logo" src="../../assets/logo Branco.png">
+          </div>
+
+          <ion-buttons slot="start" class="backButton">
+            <ion-button (click)="backPag()">
+              <ion-icon slot="end" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+
+        </ion-toolbar>
+      </div>
+    </ion-header>
+
+    <div class="container top ion-text-center">
+
+      <h2><strong>Cadastre-se</strong></h2>
+
+      <div class="boxForm">
+        <form [formGroup]="formUser">
+
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="text" placeholder="Nome" formControlName="name"></ion-input>   
+            <ion-icon slot="end" name="person-outline"></ion-icon>         
+          </ion-item>
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="email" placeholder="E-mail" formControlName="email"></ion-input>
+            <ion-icon slot="end" name="mail-outline"></ion-icon>            
+          </ion-item>
+
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="tel" placeholder="Telefone" formControlName="phone"></ion-input>
+            <ion-icon slot="end" name="call-outline"></ion-icon>            
+          </ion-item>
+
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="text" placeholder="Cpf" formControlName="cpf"></ion-input> 
+            <ion-icon slot="end" name="id-card-outline"></ion-icon>           
+          </ion-item>
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="password" placeholder="Senha" formControlName="password"></ion-input> 
+            <ion-icon slot="end" name="bag-outline"></ion-icon>           
+          </ion-item>
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="password" placeholder="Confirme Senha" formControlName="confirmPassword"></ion-input> 
+            <ion-icon slot="end" name="bag-outline"></ion-icon>                      
+          </ion-item>
+          
+          <!--abaixo inicia endereco-->
+
+          <ion-item class="ion-margin-top " lines="none">
+            <ion-input type="text" placeholder="Cep" formControlName="postalcode"></ion-input>   
+            <ion-icon class="cepIcon" color="light" slot="end" name="search-circle-outline" (click)="buscaCep()"></ion-icon>        
+          </ion-item>
+
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="text" placeholder="Endereco" id="street" formControlName="street" disabled=true ></ion-input>  
+            <ion-icon slot="end" name="map-outline"></ion-icon>          
+          </ion-item>
+
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="text" placeholder="Complemento" id="complement" formControlName="complement"></ion-input> 
+            <ion-icon slot="end" name="code-working-outline"></ion-icon>           
+          </ion-item>
+
+          <div class="rowDiv">
+          <ion-item class="ion-margin-top number" lines="none">
+            <ion-input type="text" placeholder="Nº" id="number" formControlName="number"></ion-input>
+            <ion-icon slot="end" name="duplicate-outline"></ion-icon>                     
+          </ion-item>
+
+          <ion-item class="ion-margin-top bairro " lines="none">
+            <ion-input class="bairro" type="text" placeholder="Bairro" id="neighborhood" formControlName="neighborhood" disabled=true ></ion-input> 
+            <ion-icon slot="end" name="ellipsis-horizontal-circle-outline"></ion-icon>                    
+          </ion-item>
+        </div>
+
+        <div class="rowDiv">
+          <ion-item class="ion-margin-top number" lines="none">
+            <ion-input type="text" placeholder="Cidade" id="city" formControlName="city" disabled=true></ion-input> 
+            <ion-icon slot="end" name="stats-chart-outline"></ion-icon>                    
+          </ion-item>
+          <ion-item class="ion-margin-top " lines="none">
+            <ion-input type="text" placeholder="Estado" id="state" formControlName="state" disabled=true ></ion-input> 
+            <ion-icon slot="end" name="stats-chart-outline"></ion-icon>                    
+          </ion-item>
+        </div>
+        </form>
+        
+        <ion-button class="ion-margin-top buttonLogin" (click)="createUser()" color="light" expand="block"
+          [disabled]="formUser.invalid">
+          <strong>Cadastrar</strong>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

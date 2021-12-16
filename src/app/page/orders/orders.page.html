@@ -1,22 +1,29 @@
+
 <ion-header>
-  <ion-toolbar class="new-background-color">
-    <ion-title>Ola {{userName}}</ion-title>
+  <div class="containerHeader">
+    
+  <ion-toolbar class="new-background-color  aaa">       
+    <ion-title>Ola {{userName}}</ion-title>   
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
         <ion-icon slot="end" name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>
-  </ion-toolbar  >
+  </ion-toolbar >
+  
   <div class="divToolbar"></div>
-  <ion-toolbar  class="ion-text-center title">
+  <ion-toolbar  class="ion-text-center title pedido">
     <ion-title>Pedidos</ion-title>
   </ion-toolbar>
+
+</div>
+
 </ion-header>
 
 <ion-content>
   <ion-row class="margin-l">
     <ion-card class="ion-text-center card" style="width:100%" *ngFor="let order of orders">
-      <ion-card-title>Pedido Nº {{ order.id}}</ion-card-title>      
+      <ion-card-title><strong>Pedido Nº {{ order.id}}</strong></ion-card-title>      
       <ion-card-content>
         <ion-button (click)="openTracking(order.id)" expand="block" color="success">
           <ion-icon name="car"></ion-icon>Rastreamento

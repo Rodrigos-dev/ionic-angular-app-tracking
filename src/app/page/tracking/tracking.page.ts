@@ -32,7 +32,7 @@ export class TrackingPage implements OnInit {
   }
 
   ngOnInit() {
-    console.log('akiiii', this.order.id)
+    console.log('akiiii', this.order)
   }
 
   ionViewWillEnter() {

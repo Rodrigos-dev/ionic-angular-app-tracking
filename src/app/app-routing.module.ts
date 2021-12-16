@@ -19,7 +19,11 @@ const routes: Routes = [
   {
     path: 'tracking',
     loadChildren: () => import('./page/tracking/tracking.module').then( m => m.TrackingPageModule)
+  },   {
+    path: 'user',
+    loadChildren: () => import('./page/user/user.module').then( m => m.UserPageModule)
   },
+
   
 ];
 

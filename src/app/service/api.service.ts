@@ -9,6 +9,8 @@ export class ApiService {
 
   public apiLink: string = 'https://api-staging.4logistica.com.br/'
 
+  public urlCEP: 'https://viacep.com.br/ws/'
+
   constructor(public http: HttpClient, private overlayService: OverlayService) { }
 
   headersOption() {
@@ -51,5 +53,17 @@ export class ApiService {
       })
     })
   }
+
+
+  async buscaCep(cep: string){ 
+    return new Promise<void>((resolve, reject) => {
+      this.http.get('https://viacep.com.br/ws/' + cep + '/json').subscribe((result: any) => {
+        resolve(result)
+      }, (error) => {
+        reject(error)
+        console.log(error)
+      })
+    })
+  }    
   
 }

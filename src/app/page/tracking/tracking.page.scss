@@ -1,31 +1,46 @@
 .new-background-color{
     --background: #342c5b; 
-    color: #fff;   
+    color: #fff; 
+    height: 80px;  
 }
 
 .card {
-    padding: 10px
+    padding-top: 3px;  
+    padding-bottom: 2px;  
+    width: 100%;   
+}
+
+ion-title {
+    font-size: 10px;
+    //background-color: red;    
+    padding: 0;
+}
+
+ion-card-title{
+    font-size: 12px;
+    margin-top: 5px;
 }
 
 .itemDetail{
-    height: 80px;
-    padding-top: 5px;
-    padding-bottom: 3px;
+    height: 60px;  
+    width: 100%;   
+    margin-top: 5px;   
+    padding-top: 25px;
+    padding-bottom: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
     background-color: #eee;
     
 }
 
 .titleItem{
-    font-size: 12px;
+    font-size: 10px;    
 }
 
 .titleDescription{
-    font-size: 10px;
-    
+    font-size: 8px;   
 }
 
 .boxCardItem{
@@ -35,7 +50,7 @@
     justify-content: center;
     width: 100%;    
     padding: 1px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 
@@ -46,11 +61,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    //height: 50vh;
     width:100%;
     overflow:hidden;
     margin: 0 ; 
-    height: 200px;
+    height: 100px;
       
 }
 
@@ -63,7 +78,7 @@
 }
 
 .html {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     color: #ddd
 }
 
@@ -73,7 +88,7 @@
     position: relative;
     margin-bottom: 1px;
     max-width: 100%;
-    width:330px;
+    width:250px;
     padding: 10px;
     //background-color: gray;       
 }
@@ -83,8 +98,8 @@
     background-color: #fff;
     color: #ddd;
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     border: 3px solid #ddd;
     display:flex;
     align-items: center;
@@ -124,11 +139,11 @@
 .proguessbar li::after{
     content: '';
     position: absolute;
-    width: 35%;
+    width: 27%;
     height: 2px;
     background-color: #ddd;
-    top: 37px;
-    margin-right: 100px;
+    top: 25px;
+    margin-right: 90px;
     z-index: -1;
 }
 
@@ -157,12 +172,13 @@
     position: relative;
     margin-bottom: 30px;
     max-width: 100%;
-    width:330px;
+    width:258px;
+    font-size: 10px;
     padding: 30px;  
     //background-color: yellowgreen;
     padding-top: 0;
     padding-bottom: 0; 
-    padding-left: 5px;   
+    padding-left: 10px;   
     padding-right: 5px;
 }
 

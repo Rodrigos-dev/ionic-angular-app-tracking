@@ -1,72 +1,39 @@
 <ion-content class="swiper-no-swiping">
 
   <div class="body">
-
     <div class="container top ion-text-center" *ngIf="!Keybord">
-      <img class="logo" src="../../assets/icon/favicon.png">
-      <ion-segment (ionChange)="segmentChanged($event)" mode="ios" value="login">
-        <ion-segment-button mode="ios" value="login">
-          <strong>
-            <ion-label>Login</ion-label>
-          </strong>
-        </ion-segment-button>
-        <ion-segment-button mode="ios" value="register">
-          <strong>
-            <ion-label>Cadastro</ion-label>
-          </strong>
-        </ion-segment-button>
-      </ion-segment>
+      <img class="logo" src="../../assets/logo Branco.png">
+
+      <h2><strong>Login</strong></h2>
+
+      <div class="boxLogin">
+        <form [formGroup]="formLogin">
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="cpf" placeholder="CPF" formControlName="username" autofocus></ion-input>
+            <ion-note slot="end" color="danger"
+              *ngIf="!formLogin.controls.username.dirty && formLogin.controls.username.hasError('required')">*
+            </ion-note>
+            <ion-note slot="end" color="danger"
+              *ngIf="formLogin.controls.username.dirty && formLogin.controls.username.hasError('pattern')">Cpf-invalido
+            </ion-note>
+          </ion-item>
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="password" placeholder="Senha" formControlName="password"></ion-input>
+            <ion-note slot="end" color="danger"
+              *ngIf="!formLogin.controls.password.dirty && formLogin.controls.password.hasError('required')">*
+            </ion-note>
+          </ion-item>
+        </form>
+        <ion-button class="ion-margin-top buttonLogin" (click)="login()" color="light" expand="block"
+          [disabled]="formLogin.invalid">
+          <strong class="a">Entrar</strong>
+        </ion-button>
+
+        <ion-label color="light" class="registerBox">Não tem uma conta? <ion-button (click)="toRegister()" fill="clear" class="light ion-no-padding textRegister">
+          Registre-se
+        </ion-button></ion-label>
+      </div>
     </div>
-
-    <ion-slides>
-      <ion-slide>
-        <div class="slide-inner ion-padding">
-          <span>Login</span>
-          <form [formGroup]="formLogin">
-            <ion-item class="ion-margin-top" lines="none">
-              <ion-input type="cpf" placeholder="CPF" formControlName="username" autofocus></ion-input>
-              <ion-note slot="end" color="danger"
-                *ngIf="!formLogin.controls.username.dirty && formLogin.controls.username.hasError('required')">*
-              </ion-note>
-              <ion-note slot="end" color="danger"
-                *ngIf="formLogin.controls.username.dirty && formLogin.controls.username.hasError('pattern')">Cpf-invalido
-              </ion-note>
-            </ion-item>
-            <ion-item class="ion-margin-top" lines="none">
-              <ion-input type="password" placeholder="Senha" formControlName="password"></ion-input>
-              <ion-note slot="end" color="danger"
-                *ngIf="!formLogin.controls.password.dirty && formLogin.controls.password.hasError('required')">*
-              </ion-note>
-            </ion-item>
-          </form>
-          <ion-button class="ion-margin-top" (click)="login()" color="light" expand="block"
-            [disabled]="formLogin.invalid">
-            Entrar
-          </ion-button>
-        </div>
-      </ion-slide>
-
-      <ion-slide>
-        <div class="slide-inner ion-padding cadastro">
-          <span>Cadastro</span>
-          <form>
-            <ion-item class="ion-margin-top" lines="none">
-              <ion-input type="text" placeholder="Nome"></ion-input>
-            </ion-item>
-            <ion-item class="ion-margin-top" lines="none">
-              <ion-input type="email" placeholder="E-mail"></ion-input>
-            </ion-item>
-            <ion-item class="ion-margin-top" lines="none">
-              <ion-input type="password" placeholder="Senha"></ion-input>
-            </ion-item>
-          </form>
-          <ion-button class="ion-margin-top" (click)="register()" color="light" expand="block">
-            Cadastrar
-          </ion-button>
-        </div>
-      </ion-slide>
-    </ion-slides>
-
   </div>
 
 </ion-content>

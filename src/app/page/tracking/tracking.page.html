@@ -18,7 +18,8 @@
 <ion-content >  
   <div class="boxCardItem">
     <ion-card class="ion-text-center card" style="width:100%">
-      <ion-card-title>Pedido Nº{{order.id}}</ion-card-title>
+      <ion-card-title><strong>Empresa: {{order.marketplace}}</strong></ion-card-title>
+      <ion-card-title><strong>Pedido Nº {{order.id}}</strong></ion-card-title>
       <ion-card-content> 
         <ion-row class="margin-l">
           <ion-card class="ion-text-center card itemDetail" style="width:100%" *ngFor="let item of items">

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonSlides, ToastController } from '@ionic/angular';
 
-import { UserLogin } from 'src/app/interfaces/user';
+import { UserLogin } from 'src/app/interfaces/userLogin';
 import { ApiService } from 'src/app/service/api.service';
 import { OverlayService } from 'src/app/service/overlay.service';
 
@@ -63,6 +63,10 @@ export class LoginPage implements OnInit {
     finally {
       (await loading).dismiss()
     }
+  }
+
+  toRegister(){
+    this.router.navigate(['/user']);
   }
   
 }//fecha classe da pagina

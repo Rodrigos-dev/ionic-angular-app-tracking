@@ -32,7 +32,7 @@ export class OrdersPage implements OnInit {
     this.getUserData()
     this.getAllOrders(this.order.driver.cpf)
     console.log(this.order)
-    console.log('aaasasasa', this.orderId)
+    console.log('aaasasasa', this.order)
   }
 
   logout() {
