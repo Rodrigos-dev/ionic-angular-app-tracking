@@ -21,7 +21,7 @@ export class OrdersPage implements OnInit {
     private overlayService: OverlayService
   ) {
     const nav = this.router.getCurrentNavigation();
-    this.order = nav.extras.state.delivery
+    this.order = nav.extras.state.order
   }
 
   ngOnInit() {

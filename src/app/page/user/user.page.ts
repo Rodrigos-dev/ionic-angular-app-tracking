@@ -91,7 +91,7 @@ export class UserPage implements OnInit {
         const { confirmPassword, ...rest } = data
         console.log('confirm', confirmPassword, 'rest', rest)
         this.apiService.createUser(rest).then((result: any) => {
-          this.overlayService.toast({ message: 'Obrigado!!! Cadastro realizado com sussesso' })
+          this.overlayService.toast({ message: 'Obrigado!!! Cadastro realizado com sussesso' })          
           this.formUser.reset();
           this.router.navigate(['/login'])
         })
@@ -101,11 +101,11 @@ export class UserPage implements OnInit {
       (await loading).dismiss()
     }
   }
-
+  
   async buscaCep() {
 
     const cep = this.formUser.value.postalcode.replace(/[^0-9]/g, '')
-    console.log(cep)
+    console.log(cep)   
 
     return this.apiService.buscaCep(cep).then((result: any) => {
       console.log('aaa', result)
@@ -122,7 +122,7 @@ export class UserPage implements OnInit {
       let state = <HTMLInputElement>document.getElementById('state');
       state.value = result.uf
     })
-  }  
+  }
 }
 
 

@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.formLogin = this.fBuider.group({
-      'username': [this.userloginAndRegister.cpf,[Validators.required]],
+      'username': [this.userloginAndRegister.cpf, [Validators.required]],
       'password': [this.userloginAndRegister.password, [Validators.required, Validators.minLength(6)]],
     })
   }
@@ -55,7 +55,7 @@ export class LoginPage implements OnInit {
         localStorage.setItem('token', JSON.stringify(result));
         this.formLogin.reset()
         this.router.navigateByUrl('/orders', {
-          state: { delivery: result }
+          state: { order: result }
         })
       })
       console.log(this.formLogin.value)
@@ -65,8 +65,8 @@ export class LoginPage implements OnInit {
     }
   }
 
-  toRegister(){
+  toRegister() {
     this.router.navigate(['/user']);
   }
-  
+
 }//fecha classe da pagina
