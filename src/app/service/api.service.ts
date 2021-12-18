@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { OverlayService } from './overlay.service';
 
@@ -10,6 +10,10 @@ export class ApiService {
   public apiLink: string = 'https://api-staging.4logistica.com.br/'
 
   public urlCEP: 'https://viacep.com.br/ws/'
+
+  private options: any = { headers: new HttpHeaders({'Content-type': 'application/json; charset=UTF-8' })}
+
+  private api: string = 'http://localhost:3000/'
 
   constructor(public http: HttpClient, private overlayService: OverlayService) { }
 
@@ -24,6 +28,40 @@ export class ApiService {
     }
     console.log('retorno', token.user, token.access_token)
     return headersOptions
+  }
+
+  createUserLocal(data : any){
+    return new Promise<void>((resolve, reject) => {
+      this.http.post(`http://localhost:3000/company`, JSON.stringify(data),
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }).subscribe((result: any) => {
+          resolve(result)
+        }, (error) => {
+          reject(error)
+          console.log(error)
+          this.overlayService.toast({ message: 'Usuario não encontrado' })
+        })
+    })
+  }
+
+  createUser(data : any){
+    return new Promise<void>((resolve, reject) => {
+      this.http.post(`${this.apiLink}user`, JSON.stringify(data),
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }).subscribe((result: any) => {
+          resolve(result)
+        }, (error) => {
+          reject(error)
+          console.log(error)
+          this.overlayService.toast({ message: 'Ocorreu algum erro com seu Cadastro' })
+        })
+    })
   }
 
   login(data: any) {
@@ -64,6 +102,10 @@ export class ApiService {
         console.log(error)
       })
     })
-  }    
+  }  
+  
+  
+
+  
   
 }

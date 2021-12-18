@@ -3,8 +3,8 @@ export interface User {
     email?: string
     cpf?: string;
     phone?: string
-    password?: string;    
-    confirmPassword?: string
+    password?: string;
+    confirmPassword?: string 
 
     street?: string
     number?: string

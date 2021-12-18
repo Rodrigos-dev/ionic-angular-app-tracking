@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.formLogin = this.fBuider.group({
-      'username': [this.userloginAndRegister.cpf,Validators.compose([Validators.required,Validators . pattern (/^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}|)$/)]),],
+      'username': [this.userloginAndRegister.cpf,[Validators.required]],
       'password': [this.userloginAndRegister.password, [Validators.required, Validators.minLength(6)]],
     })
   }
