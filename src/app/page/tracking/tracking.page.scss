@@ -1,7 +1,31 @@
 .new-background-color{
     --background: #342c5b; 
     color: #fff; 
-    height: 80px;  
+    height: 80px;     
+}
+
+.setaBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #342c5b; 
+}
+
+span{
+    color: #fff;
+    font-size: 10px;
+    padding-top: 15px;
+}
+
+.seta{         
+        --background: #342c5b; 
+        margin: 0;
+
+}
+
+.iconSeta{
+    color:#fff
 }
 
 .card {
@@ -10,15 +34,24 @@
     width: 100%;   
 }
 
+.divToolbarTitle{
+    //background-color: red;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 ion-title {
-    font-size: 10px;
+    font-size: 15px;
     //background-color: red;    
-    padding: 0;
+    padding: 10;
 }
 
 ion-card-title{
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 3px;
 }
 
 .itemDetail{
@@ -50,7 +83,8 @@ ion-card-title{
     justify-content: center;
     width: 100%;    
     padding: 1px;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
+    height: 0px;
 }
 
 

@@ -78,6 +78,7 @@ export class UserPage implements OnInit {
 
       const data = this.formUser.value
 
+      console.log(this.formUser.value)
       const verifyCPF = ValidarCpf.cpf(data.cpf)       
 
       if (data.password !== data.confirmPassword) {

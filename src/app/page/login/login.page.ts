@@ -13,9 +13,7 @@ import { OverlayService } from 'src/app/service/overlay.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
-
-  @ViewChild(IonSlides) slides: IonSlides;
+export class LoginPage implements OnInit {  
 
   public userloginAndRegister: UserLogin = {}
 
@@ -36,15 +34,7 @@ export class LoginPage implements OnInit {
   }
 
   ionViewWillEnter() {
-  }
-
-  segmentChanged(event: any) {
-    if (event.detail.value === "login") {
-      this.slides.slidePrev();//volta para o slid anterior ver na documentacao
-    } else {
-      this.slides.slideNext();//vai para o proximo slide
-    }
-  }
+  }  
 
   async login() {
     const loading = this.overlayService.loading()

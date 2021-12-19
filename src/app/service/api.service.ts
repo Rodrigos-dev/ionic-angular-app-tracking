@@ -89,6 +89,7 @@ export class ApiService {
       }, (error) => {
         reject(error)
         this.overlayService.toast({ message: 'Ocorreu algum erro ou seu Token expirou' })
+        localStorage.clear()
         this.router.navigate(['/login']);        
       })
     })
@@ -101,8 +102,7 @@ export class ApiService {
         resolve(result)
       }, (error) => {
         reject(error)
-        this.overlayService.toast({ message: 'Ocorreu algum erro ou seu Token expirou' })
-        this.router.navigate(['/login']);
+        this.overlayService.toast({ message: 'Cep não encontrado' })        
       })
     })
   } 

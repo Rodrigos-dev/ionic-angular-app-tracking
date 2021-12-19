@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AnimationController,Animation, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-tracking',
@@ -8,6 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./tracking.page.scss'],
 })
 export class TrackingPage implements OnInit {
+  @ViewChild('blocks') blocks: any;
+  public initialStep: number = 100
+  private maxTranslate: number;
+  private animation: Animation;
+
   order: any
   user: any
   userName: any
@@ -26,9 +32,14 @@ export class TrackingPage implements OnInit {
 
   public form: FormGroup;
 
-  constructor(private router: Router, private fBuider: FormBuilder) {
+  constructor(private router: Router,
+    private fBuider: FormBuilder,
+    private animationCtrl: AnimationController,
+    private platform: Platform) {
     const nav = this.router.getCurrentNavigation();
     this.order = nav.extras.state.order
+
+    this.maxTranslate = this.platform.height() - 200;
   }
 
   ngOnInit() {
@@ -41,7 +52,22 @@ export class TrackingPage implements OnInit {
     this.verifyStepStatus();
     this.companyDocument = this.order.companyDocument
     console.log('company document', this.items)
+
+    this.createAnimation();
   }
+
+  toogleBlocks(){
+    this.initialStep = this.initialStep === 0 ? this.maxTranslate : 0
+
+    this.animation.direction(this.initialStep === 0 ? 'reverse' :  'normal').play();
+  }
+
+  createAnimation(){
+    this.animation = this.animationCtrl.create() 
+    .addElement(this.blocks.nativeElement) 
+    .duration(500) 
+    .fromTo('height', 'auto',`translateY(${this.maxTranslate}px)`);
+}
 
   getItens() {
     this.items = this.order.items

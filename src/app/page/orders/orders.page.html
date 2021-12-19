@@ -2,8 +2,17 @@
 <ion-header>
   <div class="containerHeader">
     
-  <ion-toolbar class="new-background-color  aaa">       
-    <ion-title>Ola {{userName}}</ion-title>   
+  <ion-toolbar class="new-background-color  aaa">
+    <ion-buttons slot="start">
+      <ion-button (click)="logout()">
+        <ion-icon slot="start" name=""></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <div class="divToolbarTitle">
+      <ion-title><strong>Ola {{userName}}</strong></ion-title>
+    </div> 
+
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
         <ion-icon slot="end" name="log-out"></ion-icon>
@@ -13,7 +22,7 @@
   
   <div class="divToolbar"></div>
   <ion-toolbar  class="ion-text-center title pedido">
-    <ion-title>Pedidos</ion-title>
+    <ion-title><strong>Pedidos</strong></ion-title>
   </ion-toolbar>
 
 </div>
