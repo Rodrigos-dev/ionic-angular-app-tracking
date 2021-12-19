@@ -63,18 +63,15 @@ export class UserPage implements OnInit {
       'status': ['active'],
       'companyDocument': ['3722971900010']
     })
-  }
-  ionViewWillEnter() {
-  }
+  }  
 
-  backPag() {
+  backPag(){
     this.router.navigate(['/login']);
   }
 
-  async createUser() {
+  async createUser(){
     const loading = this.overlayService.loading()
     try {
-
       this.formUser.value.phone = this.formUser.value.phone.replace(/[^0-9]/g, '')
       this.formUser.value.cpf = this.formUser.value.cpf.replace(/[^0-9]/g, '')
       this.formUser.value.postalcode = this.formUser.value.postalcode.replace(/[^0-9]/g, '')
@@ -99,11 +96,10 @@ export class UserPage implements OnInit {
       }
     }finally {
       (await loading).dismiss()
-    }
+    }    
   }
   
   async buscaCep() {
-
     const cep = this.formUser.value.postalcode.replace(/[^0-9]/g, '')
     console.log(cep)   
 
@@ -123,6 +119,7 @@ export class UserPage implements OnInit {
       state.value = result.uf
     })
   }
+
 }
 
 

@@ -41,7 +41,6 @@ export class TrackingPage implements OnInit {
     this.verifyStepStatus();
     this.companyDocument = this.order.companyDocument
     console.log('company document', this.items)
-
   }
 
   getItens() {
@@ -52,9 +51,7 @@ export class TrackingPage implements OnInit {
   ordersPag() {
     this.order = {}
     this.router.navigate(['/orders']);
-  }
-
-  
+  }  
 
   logout() {
     localStorage.clear()
@@ -146,7 +143,6 @@ export class TrackingPage implements OnInit {
         document.getElementById('fourIcon').classList.add('active');
       }
     }
-
   }
 
 }

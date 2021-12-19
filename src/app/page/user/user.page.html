@@ -91,12 +91,12 @@
             <ion-note slot="end" color="danger"
               *ngIf="!formUser.controls.postalcode.dirty && formUser.controls.postalcode.hasError('required')">*
             </ion-note>            
-            <ion-icon color="success" slot="end" name="search-outline">
+            <ion-icon slot="end" name="search-outline">
             </ion-icon>
           </ion-item>
 
           <ion-item class="ion-margin-top" lines="none">
-            <ion-input type="text" placeholder="Endereco" id="street" formControlName="street" [attr.disabled]="true">
+            <ion-input type="text" placeholder="Endereco" id="street" formControlName="street" readonly="readonly">
             </ion-input>
             <ion-note slot="end" color="danger"
               *ngIf="!formUser.controls.street.dirty && formUser.controls.street.hasError('required')">*
@@ -111,7 +111,7 @@
 
           <div class="rowDiv">
             <ion-item class="ion-margin-top number" lines="none">
-              <ion-input type="text" placeholder="Nº" id="number" formControlName="number"></ion-input>
+              <ion-input type="text" placeholder="Nº" id="number" formControlName="number" ></ion-input>
               <ion-note slot="end" color="danger"
                 *ngIf="!formUser.controls.number.dirty && formUser.controls.number.hasError('required')">*
               </ion-note>
@@ -119,7 +119,7 @@
             </ion-item>
 
             <ion-item class="ion-margin-top bairro " lines="none">
-              <ion-input class="bairro" type="text" placeholder="Bairro" id="neighborhood" formControlName="neighborhood" [attr.disabled]="true"></ion-input>
+              <ion-input class="bairro" type="text" placeholder="Bairro" id="neighborhood" formControlName="neighborhood" readonly="readonly"></ion-input>
               <ion-note slot="end" color="danger"
                 *ngIf="!formUser.controls.neighborhood.dirty && formUser.controls.neighborhood.hasError('required')">*
               </ion-note>
@@ -129,14 +129,14 @@
 
           <div class="rowDiv">
             <ion-item class="ion-margin-top number" lines="none">
-              <ion-input type="text" placeholder="Cidade" id="city" formControlName="city" [attr.disabled]="true"></ion-input>
+              <ion-input type="text" placeholder="Cidade" id="city" formControlName="city" readonly="readonly"></ion-input>
               <ion-note slot="end" color="danger"
                 *ngIf="!formUser.controls.city.dirty && formUser.controls.city.hasError('required')">*
               </ion-note>
               <ion-icon slot="end" name="stats-chart-outline"></ion-icon>
             </ion-item>
             <ion-item class="ion-margin-top " lines="none">
-              <ion-input type="text" placeholder="Estado" id="state" formControlName="state" [attr.disabled]="true"></ion-input>
+              <ion-input type="text" placeholder="Estado" id="state" formControlName="state" readonly="readonly"></ion-input>
               <ion-note slot="end" color="danger"
                 *ngIf="!formUser.controls.state.dirty && formUser.controls.state.hasError('required')">*
               </ion-note>

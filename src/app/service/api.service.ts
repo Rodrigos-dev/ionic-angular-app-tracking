@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { OverlayService } from './overlay.service';
 
 @Injectable({
@@ -15,7 +16,7 @@ export class ApiService {
 
   private api: string = 'http://localhost:3000/'
 
-  constructor(public http: HttpClient, private overlayService: OverlayService) { }
+  constructor(public http: HttpClient, private overlayService: OverlayService, private router: Router) { }
 
   headersOption() {
     const token = JSON.parse(localStorage.getItem('token'));
@@ -30,7 +31,7 @@ export class ApiService {
     return headersOptions
   }
 
-  createUserLocal(data : any){
+  createUserLocal(data : any) {
     return new Promise<void>((resolve, reject) => {
       this.http.post(`http://localhost:3000/company`, JSON.stringify(data),
         {
@@ -47,7 +48,7 @@ export class ApiService {
     })
   }
 
-  createUser(data : any){
+  createUser(data : any) {
     return new Promise<void>((resolve, reject) => {
       this.http.post(`${this.apiLink}user`, JSON.stringify(data),
         {
@@ -87,25 +88,23 @@ export class ApiService {
         resolve(result)
       }, (error) => {
         reject(error)
-        console.log(error)
+        this.overlayService.toast({ message: 'Ocorreu algum erro ou seu Token expirou' })
+        this.router.navigate(['/login']);        
       })
     })
   }
 
 
-  async buscaCep(cep: string){ 
+  async buscaCep(cep: string) {
     return new Promise<void>((resolve, reject) => {
       this.http.get('https://viacep.com.br/ws/' + cep + '/json').subscribe((result: any) => {
         resolve(result)
       }, (error) => {
         reject(error)
-        console.log(error)
+        this.overlayService.toast({ message: 'Ocorreu algum erro ou seu Token expirou' })
+        this.router.navigate(['/login']);
       })
     })
-  }  
-  
-  
-
-  
-  
+  } 
+    
 }
