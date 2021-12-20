@@ -1,6 +1,5 @@
-
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
 import { ApiService } from 'src/app/service/api.service';
@@ -13,7 +12,6 @@ import { OverlayService } from 'src/app/service/overlay.service';
   styleUrls: ['./user.page.scss'],
 })
 export class UserPage implements OnInit {
-
   public user: User = {
     name: '',
     email: '',
@@ -31,99 +29,112 @@ export class UserPage implements OnInit {
     state: '',
     type: '',
     status: '',
-    companyDocument: ''
-  }
+    companyDocument: '',
+  };
 
-  public formUser: FormGroup
+  public formUser: FormGroup;
 
   constructor(
     private fBuider: FormBuilder,
     private router: Router,
     private apiService: ApiService,
     private overlayService: OverlayService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.formUser = this.fBuider.group({
-      'name': [this.user.name, [Validators.required, Validators.minLength(2)]],
-      'email': [this.user.email, [Validators.required, Validators.email]],
-      'phone': [this.user.phone , [Validators.required]],
-      'cpf': [this.user.cpf, [Validators.required]],
-      'password': [this.user.password, [Validators.required, Validators.minLength(6)]],
-      'confirmPassword': [this.user.confirmPassword, [Validators.required, Validators.minLength(6)]],
+      name: [this.user.name, [Validators.required, Validators.minLength(2)]],
+      email: [this.user.email, [Validators.required, Validators.email]],
+      phone: [this.user.phone, [Validators.required]],
+      cpf: [this.user.cpf, [Validators.required]],
+      password: [
+        this.user.password,
+        [Validators.required, Validators.minLength(6)],
+      ],
+      confirmPassword: [
+        this.user.confirmPassword,
+        [Validators.required, Validators.minLength(6)],
+      ],
 
-      'postalcode': [this.user.postalcode, [Validators.required]],
-      'street': [this.user.street, [Validators.required]],
-      'number': [this.user.number, [Validators.required]],
-      'neighborhood': [this.user.neighborhood, [Validators.required]],
-      'complement': [this.user.complement],
-      'city': [this.user.city, [Validators.required]],
-      'state': [this.user.state, [Validators.required]],
-      'type': ['FINAL_USER'],
-      'status': ['active'],
-      'companyDocument': ['3722971900010']
-    })
-  }  
+      postalcode: [this.user.postalcode, [Validators.required]],
+      street: [this.user.street, [Validators.required]],
+      number: [this.user.number, [Validators.required]],
+      neighborhood: [this.user.neighborhood, [Validators.required]],
+      complement: [this.user.complement],
+      city: [this.user.city, [Validators.required]],
+      state: [this.user.state, [Validators.required]],
+      type: ['FINAL_USER'],
+      status: ['active'],
+      companyDocument: ['3722971900010'],
+    });
+  }
 
-  backPag(){
+  backPag() {
     this.router.navigate(['/login']);
   }
 
-  async createUser(){
-    const loading = this.overlayService.loading()
+  async createUser() {
+    const loading = this.overlayService.loading();
     try {
-      this.formUser.value.phone = this.formUser.value.phone.replace(/[^0-9]/g, '')
-      this.formUser.value.cpf = this.formUser.value.cpf.replace(/[^0-9]/g, '')
-      this.formUser.value.postalcode = this.formUser.value.postalcode.replace(/[^0-9]/g, '')
+      this.formUser.value.phone = this.formUser.value.phone.replace(
+        /[^0-9]/g,
+        ''
+      );
+      this.formUser.value.cpf = this.formUser.value.cpf.replace(/[^0-9]/g, '');
+      this.formUser.value.postalcode = this.formUser.value.postalcode.replace(
+        /[^0-9]/g,
+        ''
+      );
 
-      const data = this.formUser.value
+      const data = this.formUser.value;
 
-      console.log(this.formUser.value)
-      const verifyCPF = ValidarCpf.cpf(data.cpf)       
+      console.log(this.formUser.value);
+      const verifyCPF = ValidarCpf.cpf(data.cpf);
 
       if (data.password !== data.confirmPassword) {
-        this.overlayService.toast({ message: 'Senha e confirmar senha devem ser iguais' })
+        this.overlayService.toast({
+          message: 'Senha e confirmar senha devem ser iguais',
+        });
       } else if (!verifyCPF) {
-        this.overlayService.toast({ message: 'Cpf invalido' })
+        this.overlayService.toast({ message: 'Cpf invalido' });
       } else {
-        const { confirmPassword, ...rest } = data
-        console.log('confirm', confirmPassword, 'rest', rest)
+        const { confirmPassword, ...rest } = data;
+        console.log('confirm', confirmPassword, 'rest', rest);
         this.apiService.createUser(rest).then((result: any) => {
-          this.overlayService.toast({ message: 'Obrigado!!! Cadastro realizado com sussesso' })          
+          this.overlayService.toast({
+            message: 'Obrigado!!! Cadastro realizado com sucesso',
+          });
           this.formUser.reset();
-          this.router.navigate(['/login'])
-        })
-        console.log(this.formUser.value)
+          this.router.navigate(['/login']);
+        });
+        console.log(this.formUser.value);
       }
-    }finally {
-      (await loading).dismiss()
-    }    
+    } finally {
+      (await loading).dismiss();
+    }
   }
-  
+
   async buscaCep() {
-    const cep = this.formUser.value.postalcode.replace(/[^0-9]/g, '')
-    console.log(cep)   
+    const cep = this.formUser.value.postalcode.replace(/[^0-9]/g, '');
 
-    return this.apiService.buscaCep(cep).then((result: any) => {
-      console.log('aaa', result)
+    if (cep.length === 8) {
+      return this.apiService.buscaCep(cep).then((result: any) => {
+        console.log('aaa', result);
 
-      let street = <HTMLInputElement>document.getElementById('street');
-      street.value = result.logradouro
+        let street = <HTMLInputElement>document.getElementById('street');
+        street.value = result.logradouro;
 
-      let neighborhood = <HTMLInputElement>document.getElementById('neighborhood');
-      neighborhood.value = result.bairro
+        let neighborhood = <HTMLInputElement>(
+          document.getElementById('neighborhood')
+        );
+        neighborhood.value = result.bairro;
 
-      let city = <HTMLInputElement>document.getElementById('city');
-      city.value = result.localidade
+        let city = <HTMLInputElement>document.getElementById('city');
+        city.value = result.localidade;
 
-      let state = <HTMLInputElement>document.getElementById('state');
-      state.value = result.uf
-    })
+        let state = <HTMLInputElement>document.getElementById('state');
+        state.value = result.uf;
+      });
+    }
   }
-
 }
-
-
-
-
-
