@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnimationController, Animation, Platform, AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ApiService } from 'src/app/service/api.service';
 import { OverlayService } from 'src/app/service/overlay.service';
 
@@ -9,8 +10,13 @@ import { OverlayService } from 'src/app/service/overlay.service';
   styleUrls: ['./orders.page.scss'],
 })
 export class OrdersPage implements OnInit {
+  @ViewChild('blocks') blocks: any;
+  public initialStep: number = 100
+  private maxTranslate: number;
+  private animation: Animation;
 
   userName: string = ''
+  userId: string = ''
   orders: any[];
   order: any;
   orderId: any = ''
@@ -18,14 +24,21 @@ export class OrdersPage implements OnInit {
   constructor(
     private apiService: ApiService,
     private router: Router,
-    private overlayService: OverlayService
+    private overlayService: OverlayService,
+    private animationCtrl: AnimationController,
+    private platform: Platform,
+    private alertCtrl: AlertController,
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController
   ) {
     const nav = this.router.getCurrentNavigation();
     this.order = nav.extras.state.order
+
+    this.maxTranslate = this.platform.height() - 200;    
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {    
+  }  
 
   ionViewWillEnter() {
     this.orders = []
@@ -33,6 +46,21 @@ export class OrdersPage implements OnInit {
     this.getAllOrders(this.order.driver.cpf)
     console.log(this.order)
     console.log('aaasasasa', this.order)
+
+    this.createAnimation();
+  }
+
+  toogleBlocks() {
+    this.initialStep = this.initialStep === 0 ? this.maxTranslate : 0
+
+    this.animation.direction(this.initialStep === 0 ? 'reverse' : 'normal').play();
+  }
+
+  createAnimation() {
+    this.animation = this.animationCtrl.create()
+      .addElement(this.blocks.nativeElement)
+      .duration(500)
+      .fromTo('height', 'auto', `0`);
   }
 
   logout() {
@@ -43,27 +71,28 @@ export class OrdersPage implements OnInit {
   getUserData() {
     const userData = JSON.parse(localStorage.getItem('token'))
     this.userName = userData.driver.name
+    this.userId = userData.driver.id
   }
 
   async getAllOrders(cpf: string) {
-    const loading = this.overlayService.loading()    
+    const loading = this.overlayService.loading()
     try {
       this.apiService.getAllOrders(cpf).then((result: any) => {
         for (let i = 0; i < result.length; i++) {
           let order = result[i];
           this.orders.push(order)
-        }        
-      })      
+        }
+      })
     } finally {
       (await loading).dismiss()
     }
   }
 
-  async openTracking(id) {    
-    this.orderId = id   
-    const loading = this.overlayService.loading()    
+  async openTracking(id) {
+    this.orderId = id
+    const loading = this.overlayService.loading()
     try {
-      const order = this.orders.find(result => result.id === this.orderId)          
+      const order = this.orders.find(result => result.id === this.orderId)
       this.router.navigateByUrl('tracking', {
         state: { order: order }
       }).catch((error: any) => {
@@ -73,5 +102,48 @@ export class OrdersPage implements OnInit {
       (await loading).dismiss()
     }
   }
+
+  updateUser(){
+    this.toogleBlocks()
+    this.router.navigate(['/update-user']);
+  }
+
+  async deleteUser(id) {
+    id = this.userId
+    const alert = await this.alertCtrl.create({
+      header: 'Exclusão de conta',
+      message: 'Você deseja solicitar <b>exclusão</b> de sua conta? </br>Saiba que se selecionar sim, <b>todos os dados serão apagados</b>',
+      cssClass: 'ion-text-center',
+      buttons: [{
+        text: 'NÃO',
+        handler: () => {
+          console.log("Cancelou")
+        }
+      },
+      {
+        text: 'SIM',
+        cssClass: 'primary',
+        handler: async () => {
+          const deleteUser = await this.apiService.deleteUser(id)
+
+          if (deleteUser === null || undefined) {
+            const toast = await this.toastCtrl.create({
+              message: 'Usuário deletado com sucesso !',
+              cssClass: 'ion-text-center',
+              duration: 2000
+            })
+
+            toast.present()
+            this.logout()
+          }
+          else {
+            console.log('Erro no delete do User')
+          }
+        }
+      }]
+    })
+    alert.present()
+  }
+
 
 }

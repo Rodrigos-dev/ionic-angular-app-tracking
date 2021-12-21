@@ -13,8 +13,11 @@ export class OverlayService {
   ) { }
 
     async alert(options?: AlertOptions): Promise<HTMLIonAlertElement>{
-      const alert = await this.alertCtrl.create(options);
-      //await alert.dismiss//tira o alert da tela
+      const alert = await this.alertCtrl.create({        
+        buttons: ['OK'],
+        message: 'Ok',        
+        ...options
+      });
       await alert.present();//mostra o alert na tela
       return alert;
     }

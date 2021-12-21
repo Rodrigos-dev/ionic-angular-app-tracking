@@ -106,5 +106,17 @@ export class ApiService {
       })
     })
   } 
+
+  
+
+  async deleteUser(id) {
+    try {
+      return await this.http
+        .delete(`${this.apiLink}user/${id}`, this.headersOption())
+        .toPromise();
+    } catch (error) {
+      return error;
+    }
+  }
     
 }

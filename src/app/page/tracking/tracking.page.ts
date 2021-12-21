@@ -66,7 +66,7 @@ export class TrackingPage implements OnInit {
     this.animation = this.animationCtrl.create() 
     .addElement(this.blocks.nativeElement) 
     .duration(500) 
-    .fromTo('height', 'auto',`translateY(${this.maxTranslate}px)`);
+    .fromTo('height', 'auto',`0`);
 }
 
   getItens() {

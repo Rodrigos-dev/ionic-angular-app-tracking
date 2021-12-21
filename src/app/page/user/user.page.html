@@ -87,7 +87,7 @@
           <!--abaixo inicia endereco-->
 
           <ion-item class="ion-margin-top " lines="none">
-            <ion-input type="text" placeholder="Cep" formControlName="postalcode" [brmasker]="{mask:'00.000-000', len:10, userCaracters: false, type:'num'}" (ionChange)="buscaCep()"></ion-input>
+            <ion-input type="text" placeholder="Cep" formControlName="postalcode" [brmasker]="{mask:'00.000-000', len:10, userCaracters: false, type:'num'}" (ionChange)="buscaCep(postalcode)"></ion-input>
             <ion-note slot="end" color="danger"
               *ngIf="!formUser.controls.postalcode.dirty && formUser.controls.postalcode.hasError('required')">*
             </ion-note>            

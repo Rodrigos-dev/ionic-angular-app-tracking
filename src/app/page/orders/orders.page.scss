@@ -13,12 +13,11 @@
 
 .new-background-color{
     --background: #342c5b; 
-    color: #fff; 
-      
+    color: #fff;     
 }
 
 .divToolbarTitle{
-    //background-color: red;
+    //background-color: white;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -27,8 +26,43 @@
     
 }
 
+.boxMenu{
+    background-color: #342c5b;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5x;
+    padding-bottom: 5px; 
+    height: 0;   
+    
+
+    .textMenu{
+        font-size: 8px;
+        margin: 5px;
+        color: #fff;       
+    }
+}
+
+.menuSome{
+    display: none;
+}
+
+.update{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .iconMenu{
+        color: #fff;
+        font-size: 13px
+    }
+}
+
 ion-title{
-    font-size: 15px;
+    font-size: 15px;    
 }
 
 .card {

@@ -3,22 +3,40 @@
   <div class="containerHeader">
     
   <ion-toolbar class="new-background-color  aaa">
-    <ion-buttons slot="start">
-      <ion-button (click)="logout()">
-        <ion-icon slot="start" name=""></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-    <div class="divToolbarTitle">
-      <ion-title><strong>Ola {{userName}}</strong></ion-title>
-    </div> 
 
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
         <ion-icon slot="end" name="log-out"></ion-icon>
       </ion-button>
+    </ion-buttons>    
+
+    <div class="divToolbarTitle">
+      <ion-title><strong>Ola {{userName}}</strong></ion-title>
+    </div>    
+
+    <ion-buttons slot="start">
+      <ion-button (click)="toogleBlocks()">
+        <ion-icon slot="start" name="menu-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
-  </ion-toolbar >
+
+  </ion-toolbar >  
+
+  <div class="boxMenu blocks" #blocks slot="start" >
+    <div class="update">
+      <ion-button class="textMenu" fill="clear" (click)="updateUser()">
+      <ion-icon class="iconMenu"slot="start" name="create-outline" ></ion-icon>
+        Atualizar Dados
+      </ion-button>
+    </div>
+    
+    <div class="update">      
+      <ion-button class="textMenu" fill="clear" (click)="deleteUser()">
+        <ion-icon class="iconMenu"slot="start" name="trash-outline"></ion-icon>
+        Desativar Conta
+      </ion-button>
+    </div>
+  </div>
   
   <div class="divToolbar"></div>
   <ion-toolbar  class="ion-text-center title pedido">
@@ -28,6 +46,8 @@
 </div>
 
 </ion-header>
+
+
 
 <ion-content>
   <ion-row class="margin-l">
