@@ -28,7 +28,7 @@
         <form [formGroup]="formUser">
 
           <ion-item class="ion-margin-top" lines="none">
-            <ion-input type="text" placeholder="Nome" formControlName="name" [attr.autofocus]="true"></ion-input>
+            <ion-input type="text" placeholder="Nome" formControlName="name" autofocus="true"></ion-input>
             <ion-note slot="end" color="danger"
               *ngIf="formUser.controls.name.dirty && formUser.controls.name.hasError('minlength')">min 2 caracteres
             </ion-note>

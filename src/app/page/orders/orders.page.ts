@@ -31,9 +31,7 @@ export class OrdersPage implements OnInit {
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController
   ) {
-    const nav = this.router.getCurrentNavigation();
-    this.order = nav.extras.state.order
-
+    
     this.maxTranslate = this.platform.height() - 200;    
   }
 
@@ -43,9 +41,9 @@ export class OrdersPage implements OnInit {
   ionViewWillEnter() {
     this.orders = []
     this.getUserData()
-    this.getAllOrders(this.order.driver.cpf)
+    this.getAllOrders(this.order.cpf)
     console.log(this.order)
-    console.log('aaasasasa', this.order)
+    console.log('aaasasasa2', this.order.cpf)
 
     this.createAnimation();
   }
@@ -64,6 +62,7 @@ export class OrdersPage implements OnInit {
   }
 
   logout() {
+    this.toogleBlocks()
     localStorage.clear()
     this.router.navigate(['/login']);
   }
@@ -72,6 +71,8 @@ export class OrdersPage implements OnInit {
     const userData = JSON.parse(localStorage.getItem('token'))
     this.userName = userData.driver.name
     this.userId = userData.driver.id
+
+    this.order = userData.driver
   }
 
   async getAllOrders(cpf: string) {

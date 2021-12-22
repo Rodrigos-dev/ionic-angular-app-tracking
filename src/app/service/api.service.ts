@@ -95,7 +95,6 @@ export class ApiService {
     })
   }
 
-
   async buscaCep(cep: string) {
     return new Promise<void>((resolve, reject) => {
       this.http.get('https://viacep.com.br/ws/' + cep + '/json').subscribe((result: any) => {
@@ -107,7 +106,17 @@ export class ApiService {
     })
   } 
 
-  
+  updateUser(data: any, id: string){
+    return new Promise<void>((resolve, reject) => {
+      this.http.put(`${this.apiLink}user/${id}`, JSON.stringify(data),this.headersOption()).subscribe((result: any) => {
+          resolve(result)
+        }, (error) => {
+          reject(error)
+          console.log(error)
+          this.overlayService.toast({ message: 'Ocorreu algum erro tente novamente mais tarde' })
+        })        
+    })
+  }  
 
   async deleteUser(id) {
     try {
