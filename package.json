@@ -1,15 +1,17 @@
 {
-  "name": "4logTracking",
+  "name": "4log-tracking",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "4INNOVATION Tecnologia",
+  "homepage": "https://4innovation.co/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-all": "ng build && npx cap copy android && npx cap open android",
+    "build-prod": "ionic build --prod && npx cap copy android && cd android && gradlew assemble && cd .."
   },
   "private": true,
   "dependencies": {
@@ -19,6 +21,7 @@
     "@angular/platform-browser": "~12.1.1",
     "@angular/platform-browser-dynamic": "~12.1.1",
     "@angular/router": "~12.1.1",
+    "@capacitor/android": "^3.3.3",
     "@capacitor/app": "1.0.7",
     "@capacitor/core": "3.3.3",
     "@capacitor/haptics": "1.1.3",

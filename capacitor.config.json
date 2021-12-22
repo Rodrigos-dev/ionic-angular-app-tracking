@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "4logTracking",
-	"webDir": "www",
-	"bundledWebRuntime": false
+  "appId": "tracking.innovation.com",
+  "appName": "4LOG Tracking",
+  "webDir": "www",
+  "bundledWebRuntime": false
 }

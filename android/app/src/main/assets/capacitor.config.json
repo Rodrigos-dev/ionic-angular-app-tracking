@@ -1,0 +1,6 @@
+{
+	"appId": "tracking.innovation.com",
+	"appName": "4LOG Tracking",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
