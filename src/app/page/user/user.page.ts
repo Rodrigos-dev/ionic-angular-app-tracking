@@ -115,7 +115,6 @@ export class UserPage implements OnInit {
   }
 
   async buscaCep() {
-<<<<<<< HEAD
     const cep = this.formUser.value.postalcode.replace(/[^0-9]/g, '');
 
     if (cep.length === 8) {
@@ -136,28 +135,6 @@ export class UserPage implements OnInit {
         let state = <HTMLInputElement>document.getElementById('state');
         state.value = result.uf;
       });
-=======
-    
-    const cep = this.formUser.value.postalcode.replace(/[^0-9]/g, '')      
-
-    if (cep.replace(/[^0-9]/g, '').length === 8){
-
-      return this.apiService.buscaCep(cep).then((result: any) => {
-        console.log('aaa', result)
-
-        let street = <HTMLInputElement>document.getElementById('street');
-        street.value = result.logradouro
-
-        let neighborhood = <HTMLInputElement>document.getElementById('neighborhood');
-        neighborhood.value = result.bairro
-
-        let city = <HTMLInputElement>document.getElementById('city');
-        city.value = result.localidade
-
-        let state = <HTMLInputElement>document.getElementById('state');
-        state.value = result.uf
-      })
->>>>>>> c5f735d (make a uptade page and menu box and delete metod)
     }
   }
 }

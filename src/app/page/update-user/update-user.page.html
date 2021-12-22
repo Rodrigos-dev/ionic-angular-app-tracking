@@ -1,24 +1,137 @@
-<ion-header>  
-  <ion-toolbar class="new-background-color" >    
-    <ion-buttons slot="end">
-      <ion-button (click)="logout()">
-        <ion-icon slot="end" name="log-out"></ion-icon>
-      </ion-button>           
-    </ion-buttons>
+<ion-content class="swiper-no-swiping">
 
-    <div class="divToolbarTitle">
-      <ion-title><strong class="toolbarTitle">Rastreie seu produto {{userName}}</strong></ion-title>
+  <div class="body">
+
+    <ion-header>
+      <div class="containerHeader">
+        <ion-toolbar class="new-background-color boxToolbar">
+
+          <div class="divImage">
+            <img class="logo" src="../../assets/logo Branco.png">
+          </div>
+
+          <ion-buttons slot="start" class="backButton">
+            <ion-button (click)="ordersPag()">
+              <ion-icon slot="end" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+
+        </ion-toolbar>
+      </div>
+    </ion-header>
+
+    <div class="container top ion-text-center">
+
+      <h2><strong>Edite seus Dados</strong></h2>
+
+      <div class="boxForm">
+        <form [formGroup]="formUser">
+
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="text" placeholder="Nome" formControlName="name" autofocus="true"></ion-input>
+            <ion-note slot="end" color="danger"
+              *ngIf="formUser.controls.name.dirty && formUser.controls.name.hasError('minlength')">min 2 caracteres
+            </ion-note>
+            <ion-note slot="end" color="danger"
+              *ngIf="!formUser.controls.name.dirty && formUser.controls.name.hasError('required')">*
+            </ion-note>
+            <ion-icon slot="end" name="person-outline"></ion-icon>            
+          </ion-item>
+
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="email" placeholder="E-mail" formControlName="email"></ion-input>
+            <ion-note slot="end" color="danger"
+              *ngIf="formUser.controls.email.dirty && formUser.controls.email.hasError('email')">E-mail invalido
+            </ion-note>
+            <ion-note slot="end" color="danger"
+              *ngIf="!formUser.controls.email.dirty && formUser.controls.email.hasError('required')">*
+            </ion-note>
+            <ion-icon slot="end" name="mail-outline"></ion-icon>
+          </ion-item>
+
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="text" placeholder="Telefone" formControlName="phone" [brmasker]="{phone: true}"></ion-input>
+            <ion-note slot="end" color="danger"
+              *ngIf="!formUser.controls.phone.dirty && formUser.controls.phone.hasError('required')">*
+            </ion-note>
+            <ion-icon slot="end" name="call-outline"></ion-icon>
+          </ion-item>
+
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="text" placeholder="Cpf" formControlName="cpf" [brmasker]="{mask:'000.000.000-00', len:14, userCaracters: false, type:'num'}"></ion-input>
+            <ion-note slot="end" color="danger"
+              *ngIf="!formUser.controls.cpf.dirty && formUser.controls.cpf.hasError('required')">*
+            </ion-note>
+            <ion-icon slot="end" name="id-card-outline"></ion-icon>
+          </ion-item>          
+
+          <!--abaixo inicia endereco-->
+
+          <ion-item class="ion-margin-top " lines="none">
+            <ion-input type="text" placeholder="Cep" formControlName="postalcode" [brmasker]="{mask:'00.000-000', len:10, userCaracters: false, type:'num'}" (ionChange)="buscaCep(postalcode)"></ion-input>
+            <ion-note slot="end" color="danger"
+              *ngIf="!formUser.controls.postalcode.dirty && formUser.controls.postalcode.hasError('required')">*
+            </ion-note>            
+            <ion-icon slot="end" name="search-outline">
+            </ion-icon>
+          </ion-item>
+
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="text" placeholder="Endereco" id="street" formControlName="street" readonly="readonly">
+            </ion-input>
+            <ion-note slot="end" color="danger"
+              *ngIf="!formUser.controls.street.dirty && formUser.controls.street.hasError('required')">*
+            </ion-note>
+            <ion-icon slot="end" name="map-outline"></ion-icon>
+          </ion-item>
+
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input type="text" placeholder="Complemento" id="complement" formControlName="complement"></ion-input>
+            <ion-icon slot="end" name="code-working-outline"></ion-icon>
+          </ion-item>
+
+          <div class="rowDiv">
+            <ion-item class="ion-margin-top number" lines="none">
+              <ion-input type="text" placeholder="Nº" id="number" formControlName="number" ></ion-input>
+              <ion-note slot="end" color="danger"
+                *ngIf="!formUser.controls.number.dirty && formUser.controls.number.hasError('required')">*
+              </ion-note>
+              <ion-icon slot="end" name="duplicate-outline"></ion-icon>
+            </ion-item>
+
+            <ion-item class="ion-margin-top bairro " lines="none">
+              <ion-input class="bairro" type="text" placeholder="Bairro" id="neighborhood" formControlName="neighborhood" readonly="readonly"></ion-input>
+              <ion-note slot="end" color="danger"
+                *ngIf="!formUser.controls.neighborhood.dirty && formUser.controls.neighborhood.hasError('required')">*
+              </ion-note>
+              <ion-icon slot="end" name="ellipsis-horizontal-circle-outline"></ion-icon>
+            </ion-item>
+          </div>
+
+          <div class="rowDiv">
+            <ion-item class="ion-margin-top number" lines="none">
+              <ion-input type="text" placeholder="Cidade" id="city" formControlName="city" readonly="readonly"></ion-input>
+              <ion-note slot="end" color="danger"
+                *ngIf="!formUser.controls.city.dirty && formUser.controls.city.hasError('required')">*
+              </ion-note>
+              <ion-icon slot="end" name="stats-chart-outline"></ion-icon>
+            </ion-item>
+            <ion-item class="ion-margin-top " lines="none">
+              <ion-input type="text" placeholder="Estado" id="state" formControlName="state" readonly="readonly"></ion-input>
+              <ion-note slot="end" color="danger"
+                *ngIf="!formUser.controls.state.dirty && formUser.controls.state.hasError('required')">*
+              </ion-note>
+              <ion-icon slot="end" name="stats-chart-outline"></ion-icon>
+            </ion-item>
+          </div>
+        </form>
+
+        <ion-note class="aviso" slot="center" color="danger" *ngIf="formUser.invalid">Preencha os campos com *</ion-note>
+        <ion-button class="ion-margin-top buttonLogin" (click)="updateUser()" color="light" expand="block" [disabled]="formUser.invalid">
+          <strong>Atualizar</strong>
+        </ion-button>
+      </div>
     </div>
-
-
-    <ion-buttons slot="start">
-      <ion-button (click)="ordersPag()">
-        <ion-icon slot="end" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>  
-  </ion-toolbar>  
-</ion-header>
-
-<ion-content>
+  </div>
 
 </ion-content>

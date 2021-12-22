@@ -44,9 +44,7 @@ export class LoginPage implements OnInit {
         this.overlayService.toast({ message: 'Login Realizado com Sussesso' })
         localStorage.setItem('token', JSON.stringify(result));
         this.formLogin.reset()
-        this.router.navigateByUrl('/orders', {
-          state: { order: result }
-        })
+        this.router.navigate(['/orders'])
       })
       console.log(this.formLogin.value)
     }
