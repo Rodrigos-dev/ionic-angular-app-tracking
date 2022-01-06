@@ -43,4 +43,15 @@ export class OverlayService {
       return toast;
     }
 
+    async toastMiddle(message: any, duration: number = 3000) {
+      const toast = await this.toastCtrl.create({
+        message,
+        position: 'middle',
+        duration,
+      });
+  
+      toast.present();
+      return toast;
+    }
+
 }

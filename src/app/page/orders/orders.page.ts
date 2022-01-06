@@ -42,27 +42,28 @@ export class OrdersPage implements OnInit {
     this.orders = []
     this.getUserData()
     this.getAllOrders(this.order.cpf)
-    console.log(this.order)
+    console.log(this.orders)
     console.log('aaasasasa2', this.order.cpf)
 
     this.createAnimation();
   }
 
-  toogleBlocks() {
+  toogleBlocks() {         
+
     this.initialStep = this.initialStep === 0 ? this.maxTranslate : 0
 
     this.animation.direction(this.initialStep === 0 ? 'reverse' : 'normal').play();
+   
   }
 
   createAnimation() {
     this.animation = this.animationCtrl.create()
       .addElement(this.blocks.nativeElement)
       .duration(500)
-      .fromTo('height', 'auto', `0`);
+      .fromTo('height', '0', `auto`);
   }
 
-  logout() {
-    this.toogleBlocks()
+  logout() {    
     localStorage.clear()
     this.router.navigate(['/login']);
   }
@@ -109,6 +110,11 @@ export class OrdersPage implements OnInit {
     this.router.navigate(['/update-user']);
   }
 
+  passwordChange(){
+    this.toogleBlocks()
+    this.router.navigate(['/password-change']);
+  }
+
   async deleteUser(id) {
     id = this.userId
     const alert = await this.alertCtrl.create({
@@ -118,6 +124,7 @@ export class OrdersPage implements OnInit {
       buttons: [{
         text: 'NÃO',
         handler: () => {
+          this.toogleBlocks()
           console.log("Cancelou")
         }
       },

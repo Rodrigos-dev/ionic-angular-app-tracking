@@ -1,219 +1,1210 @@
-.new-background-color{
-    --background: #342c5b; 
-    color: #fff; 
-    height: 80px;     
-}
-
-.setaBox{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #342c5b; 
-}
-
-span{
-    color: #fff;
-    font-size: 10px;
-    padding-top: 15px;
-}
-
-.seta{         
+@media (min-width: 200px) and (max-width: 767px){
+    .tollbarBox{
+        //background-color: orange;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;   
+        width: 100%;
+    }
+    
+    .tollbarBox2{
+        //background-color: orange;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;   
+        width: 100%;
+    }
+    
+    
+    .new-background-color{
         --background: #342c5b; 
-        margin: 0;
-
-}
-
-.iconSeta{
-    color:#fff
-}
-
-.card {
-    padding-top: 3px;  
-    padding-bottom: 2px;  
-    width: 100%;   
-}
-
-.divToolbarTitle{
-    //background-color: red;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-ion-title {
-    font-size: 15px;
-    //background-color: red;    
-    padding: 10;
-}
-
-ion-card-title{
-    font-size: 12px;
-    margin-top: 3px;
-}
-
-.itemDetail{
-    height: 60px;  
-    width: 100%;   
-    margin-top: 5px;   
-    padding-top: 25px;
-    padding-bottom: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;    
-    background-color: #eee;
+        color: #fff; 
+        height: 80px;     
+    }
+    
+    .setaBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #342c5b; 
+    }
+    
+    span{
+        color: #fff;
+        font-size: 10px;
+        padding-top: 15px;
+    }
+    
+    .seta{         
+            --background: #342c5b; 
+            margin: 0;
+    
+    }
+    
+    .iconSeta{
+        color:#fff
+    }
+    
+    .card {
+        padding-top: 3px;  
+        padding-bottom: 2px;  
+        width: 100%;   
+    }
+    
+    .divToolbarTitle{
+        //background-color: red;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    ion-title {
+        font-size: 15px;
+        //background-color: red;    
+        padding: 10;
+    }
+    
+    ion-card-title{
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    
+    
+    
+    .itemDetail{
+        height: 80px;  
+        width: 100%;   
+        margin-top: 5px;   
+        padding-top: 25px;
+        padding-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+        background-color: #eee;
+        
+    }
+    
+    .titleItem{
+        font-size: 12px;    
+    }
+    
+    .titleDescription{
+        font-size: 12px;   
+    }
+    
+    .boxCardItem{
+        background-color: #342c5b;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;    
+        padding: 1px;
+        margin-bottom: 15px;
+        height: auto;
+    }
+    
+    
+    //parte trackin abaixo
+    
+    .container{
+        //background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        //height: 50vh;
+        width:100%;
+        overflow:hidden;
+        margin: 0 ; 
+        height: 100px;
+          
+    }
+    
+    .container2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        //background-color: blue;
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .html {
+        font-size: 1.4rem;
+        color: #ddd
+    }
+    
+    .proguessbar {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 1px;
+        max-width: 100%;
+        width:350px;
+        padding: 10px;
+        //background-color: gray;       
+    }
+    
+    //criando circles
+    .circle {
+        background-color: #fff;
+        color: #ddd;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        border: 3px solid #ddd;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s ease;
+    }
+    
+    //quando tal circulo estiver com a classe active
+    .circle.active {
+        border-color: #342c5b ;    
+    }
+    
+    .html.active{
+        color:#342c5b;
+    }
+    
+    .circle.active{
+        background-color: #fff;   
+    }
+    //fim circulo nos icones
+    
+    //criando linha
+    .proguessbar li:before{
+        //content: '';
+        width: 30px;
+        height: 30px;
+        float: left;
+        line-height: 30px;
+        border: 1px solid #ddd;
+        display: block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        background-color: #fff;
+    }
+    
+    .proguessbar li::after{
+        content: '';
+        position: absolute;
+        width: 27%;
+        height: 2px;
+        background-color: #ddd;
+        top: 30px;
+        margin-right: 90px;
+        z-index: -1;
+    }
+    
+    .proguessbar li:first-child::after{
+        content: none;
+    }
+    
+    .proguessbar li.active{
+        color: #342c5b;
+    }
+    
+    .proguessbar li.active::before{
+        border-color: #342c5b;
+    }
+    
+    .proguessbar li.active + li::after{
+        background-color: #342c5b;
+    }
+    //fim do codigo da linha
+    
+    //#########################################
+    //parte do texto
+    .textAbaixo {//igual o proguessbar a configuracao
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 30px;
+        max-width: 100%;
+        width:100%;
+        font-size: 10px;
+        padding: 20px;  
+        //background-color: yellowgreen;
+        padding-top: 0;
+        padding-bottom: 0; 
+        padding-left: 15px;   
+        padding-right: 10px;
+    }
     
 }
 
-.titleItem{
-    font-size: 10px;    
+@media (min-width: 768px) and (max-width: 1023px){
+    .tollbarBox{
+        //background-color: orange;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;   
+        width: 100%;
+    }
+    
+    .tollbarBox2{
+        //background-color: orange;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;   
+        width: 80%;
+    }
+    
+    
+    .new-background-color{
+        --background: #342c5b; 
+        color: #fff; 
+        height: 80px;     
+    }
+    
+    .setaBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #342c5b; 
+    }
+    
+    span{
+        color: #fff;
+        font-size: 10px;
+        padding-top: 15px;
+    }
+    
+    .seta{         
+            --background: #342c5b; 
+            margin: 0;
+    
+    }
+    
+    .iconSeta{
+        color:#fff
+    }
+    
+    .card {
+        padding-top: 3px;  
+        padding-bottom: 2px;  
+        width: 80%;   
+    }
+    
+    .divToolbarTitle{
+        //background-color: red;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    ion-title {
+        font-size: 15px;
+        //background-color: red;    
+        padding: 10;
+    }
+    
+    ion-card-title{
+        font-size: 14px;
+        margin-top: 5px;
+    }   
+    
+    
+    .itemDetail{
+        height: 80px;  
+        width: 100%;   
+        margin-top: 5px;   
+        padding-top: 25px;
+        padding-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+        background-color: #eee;
+        
+    }
+    
+    .titleItem{
+        font-size: 12px;    
+    }
+    
+    .titleDescription{
+        font-size: 12px;   
+    }
+    
+    .boxCardItem{
+        background-color: #342c5b;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;    
+        padding: 1px;
+        margin-bottom: 15px;
+        height: auto;
+    }
+    
+    
+    //parte trackin abaixo
+    
+    .container{
+        //background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        //height: 50vh;
+        width:100%;
+        overflow:hidden;
+        margin: 0 ; 
+        height: 100px;
+          
+    }
+    
+    .container2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        //background-color: blue;
+        width: 90%;
+    }
+    
+    .html {
+        font-size: 1.7rem;
+        color: #ddd
+    }
+    
+    .proguessbar {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 1px;
+        max-width: 100%;
+        width:350px;
+        padding: 10px;
+        //background-color: gray;       
+    }
+    
+    //criando circles
+    .circle {
+        background-color: #fff;
+        color: #ddd;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        border: 3px solid #ddd;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s ease;
+    }
+    
+    //quando tal circulo estiver com a classe active
+    .circle.active {
+        border-color: #342c5b ;    
+    }
+    
+    .html.active{
+        color:#342c5b;
+    }
+    
+    .circle.active{
+        background-color: #fff;   
+    }
+    //fim circulo nos icones
+    
+    //criando linha
+    .proguessbar li:before{
+        //content: '';
+        width: 30px;
+        height: 30px;
+        float: left;
+        line-height: 30px;
+        border: 1px solid #ddd;
+        display: block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        background-color: #fff;
+    }
+    
+    .proguessbar li::after{
+        content: '';
+        position: absolute;
+        width: 27%;
+        height: 2px;
+        background-color: #ddd;
+        top: 35px;
+        margin-right: 90px;
+        z-index: -1;
+    }
+    
+    .proguessbar li:first-child::after{
+        content: none;
+    }
+    
+    .proguessbar li.active{
+        color: #342c5b;
+    }
+    
+    .proguessbar li.active::before{
+        border-color: #342c5b;
+    }
+    
+    .proguessbar li.active + li::after{
+        background-color: #342c5b;
+    }
+    //fim do codigo da linha
+    
+    //#########################################
+    //parte do texto
+    .textAbaixo {//igual o proguessbar a configuracao
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 30px;
+        max-width: 100%;
+        width:50%;
+        font-size: 15px;
+        padding: 20px;  
+        //background-color: yellowgreen;
+        padding-top: 0;
+        padding-bottom: 0; 
+        padding-left: 5px;   
+        padding-right: 0px;
+    } 
 }
 
-.titleDescription{
-    font-size: 8px;   
+@media (min-width: 1024px) and (max-width: 1439px){
+    .tollbarBox{
+        //background-color: orange;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;   
+        width: 100%;
+    }
+    
+    .tollbarBox2{
+        //background-color: orange;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;   
+        width: 80%;
+    }
+    
+    
+    .new-background-color{
+        --background: #342c5b; 
+        color: #fff; 
+        height: 80px;     
+    }
+    
+    .setaBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #342c5b; 
+    }
+    
+    span{
+        color: #fff;
+        font-size: 10px;
+        padding-top: 15px;
+    }
+    
+    .seta{         
+            --background: #342c5b; 
+            margin: 0;
+    
+    }
+    
+    .iconSeta{
+        color:#fff
+    }
+    
+    .card {
+        padding-top: 3px;  
+        padding-bottom: 2px;  
+        width: 80%;   
+    }
+    
+    .divToolbarTitle{
+        //background-color: red;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    ion-title {
+        font-size: 15px;
+        //background-color: red;    
+        padding: 10;
+    }
+    
+    ion-card-title{
+        font-size: 14px;
+        margin-top: 5px;
+    }   
+    
+    
+    .itemDetail{
+        height: 80px;  
+        width: 100%;   
+        margin-top: 5px;   
+        padding-top: 25px;
+        padding-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+        background-color: #eee;
+        
+    }
+    
+    .titleItem{
+        font-size: 12px;    
+    }
+    
+    .titleDescription{
+        font-size: 12px;   
+    }
+    
+    .boxCardItem{
+        background-color: #342c5b;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;    
+        padding: 1px;
+        margin-bottom: 15px;
+        height: auto;
+    }
+    
+    
+    //parte trackin abaixo
+    
+    .container{
+        //background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        width:100%;
+        overflow:hidden;
+        margin: 0 ; 
+        height: 100px;
+          
+    }
+    
+    .container2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        //background-color: blue;        
+        width: 100%;
+    }
+    
+    .html {
+        font-size: 1.7rem;
+        color: #ddd
+    }
+    
+    .proguessbar {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 1px;
+        max-width: 100%;
+        width:470px;
+        padding: 10px;
+        //background-color: gray;       
+    }
+    
+    //criando circles
+    .circle {
+        background-color: #fff;
+        color: #ddd;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        border: 3px solid #ddd;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s ease;        
+    }
+    
+    //quando tal circulo estiver com a classe active
+    .circle.active {
+        border-color: #342c5b ;    
+    }
+    
+    .html.active{
+        color:#342c5b;
+    }
+    
+    .circle.active{
+        background-color: #fff;   
+    }
+    //fim circulo nos icones
+    
+    //criando linha
+    .proguessbar li:before{
+        //content: '';
+        width: 30px;
+        height: 30px;
+        float: left;
+        line-height: 30px;
+        border: 1px solid #ddd;
+        display: block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        background-color: #fff;
+    }
+    
+    .proguessbar li::after{
+        content: '';
+        position: absolute;
+        width: 27%;
+        height: 2px;
+        background-color: #ddd;
+        top: 35px;
+        margin-right: 90px;
+        z-index: -1;
+    }
+    
+    .proguessbar li:first-child::after{
+        content: none;
+    }
+    
+    .proguessbar li.active{
+        color: #342c5b;
+    }
+    
+    .proguessbar li.active::before{
+        border-color: #342c5b;
+    }
+    
+    .proguessbar li.active + li::after{
+        background-color: #342c5b;
+    }
+    //fim do codigo da linha
+    
+    //#########################################
+    //parte do texto
+    .textAbaixo {//igual o proguessbar a configuracao
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 30px;
+        max-width: 100%;
+        width:80%;
+        font-size: 15px;
+        //padding: 20px;  
+        //background-color: yellowgreen;
+        padding-top: 0;
+        padding-bottom: 0; 
+        padding-left: 18%;   
+        padding-right: 17%;
+    }  
 }
 
-.boxCardItem{
-    background-color: #342c5b;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;    
-    padding: 1px;
-    margin-bottom: 15px;
-    height: 0px;
+@media (min-width: 1440px) and (max-width: 2559px){
+    .tollbarBox{
+        //background-color: orange;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;   
+        width: 100%;
+    }
+    
+    .tollbarBox2{
+        //background-color: orange;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;   
+        width: 80%;
+    }
+    
+    
+    .new-background-color{
+        --background: #342c5b; 
+        color: #fff; 
+        height: 80px;     
+    }
+    
+    .setaBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #342c5b; 
+    }
+    
+    span{
+        color: #fff;
+        font-size: 10px;
+        padding-top: 15px;
+    }
+    
+    .seta{         
+            --background: #342c5b; 
+            margin: 0;
+    
+    }
+    
+    .iconSeta{
+        color:#fff
+    }
+    
+    .card {
+        padding-top: 3px;  
+        padding-bottom: 2px;  
+        width: 80%;   
+    }
+    
+    .divToolbarTitle{
+        //background-color: red;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    ion-title {
+        font-size: 15px;
+        //background-color: red;    
+        padding: 10;
+    }
+    
+    ion-card-title{
+        font-size: 14px;
+        margin-top: 5px;
+    }   
+    
+    
+    .itemDetail{
+        height: 80px;  
+        width: 100%;   
+        margin-top: 5px;   
+        padding-top: 25px;
+        padding-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+        background-color: #eee;
+        
+    }
+    
+    .titleItem{
+        font-size: 12px;    
+    }
+    
+    .titleDescription{
+        font-size: 12px;   
+    }
+    
+    .boxCardItem{
+        background-color: #342c5b;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;    
+        padding: 1px;
+        margin-bottom: 15px;
+        height: auto;
+    }
+    
+    
+    //parte trackin abaixo
+    
+    .container{
+        //background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        width:100%;
+        overflow:hidden;
+        margin: 0 ; 
+        height: 100px;
+          
+    }
+    
+    .container2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        //background-color: blue;        
+        width: 100%;
+    }
+    
+    .html {
+        font-size: 1.7rem;
+        color: #ddd
+    }
+    
+    .proguessbar {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 1px;
+        max-width: 100%;
+        width:470px;
+        padding: 10px;
+        //background-color: gray;       
+    }
+    
+    //criando circles
+    .circle {
+        background-color: #fff;
+        color: #ddd;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        border: 3px solid #ddd;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s ease;        
+    }
+    
+    //quando tal circulo estiver com a classe active
+    .circle.active {
+        border-color: #342c5b ;    
+    }
+    
+    .html.active{
+        color:#342c5b;
+    }
+    
+    .circle.active{
+        background-color: #fff;   
+    }
+    //fim circulo nos icones
+    
+    //criando linha
+    .proguessbar li:before{
+        //content: '';
+        width: 30px;
+        height: 30px;
+        float: left;
+        line-height: 30px;
+        border: 1px solid #ddd;
+        display: block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        background-color: #fff;
+    }
+    
+    .proguessbar li::after{
+        content: '';
+        position: absolute;
+        width: 27%;
+        height: 2px;
+        background-color: #ddd;
+        top: 35px;
+        margin-right: 90px;
+        z-index: -1;
+    }
+    
+    .proguessbar li:first-child::after{
+        content: none;
+    }
+    
+    .proguessbar li.active{
+        color: #342c5b;
+    }
+    
+    .proguessbar li.active::before{
+        border-color: #342c5b;
+    }
+    
+    .proguessbar li.active + li::after{
+        background-color: #342c5b;
+    }
+    //fim do codigo da linha
+    
+    //#########################################
+    //parte do texto
+    .textAbaixo {//igual o proguessbar a configuracao
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 30px;
+        max-width: 100%;
+        width:80%;
+        font-size: 15px;
+        //padding: 20px;  
+        //background-color: yellowgreen;
+        padding-top: 0;
+        padding-bottom: 0; 
+        padding-left: 25%;   
+        padding-right: 24%;
+    }  
 }
 
-
-//parte trackin abaixo
-
-.container{
-    //background-color: red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    //height: 50vh;
-    width:100%;
-    overflow:hidden;
-    margin: 0 ; 
-    height: 100px;
-      
+@media (min-width: 2560px){
+    .tollbarBox{
+        //background-color: orange;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;   
+        width: 100%;
+    }
+    
+    .tollbarBox2{
+        //background-color: orange;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;   
+        width: 60%;
+    }
+    
+    
+    .new-background-color{
+        --background: #342c5b; 
+        color: #fff; 
+        height: 80px;     
+    }
+    
+    .setaBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #342c5b; 
+    }
+    
+    span{
+        color: #fff;
+        font-size: 10px;
+        padding-top: 15px;
+    }
+    
+    .seta{         
+            --background: #342c5b; 
+            margin: 0;
+    
+    }
+    
+    .iconSeta{
+        color:#fff
+    }
+    
+    .card {
+        padding-top: 3px;  
+        padding-bottom: 2px;  
+        width: 60%;   
+    }
+    
+    .divToolbarTitle{
+        //background-color: red;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    ion-title {
+        font-size: 15px;
+        //background-color: red;    
+        padding: 10;
+    }
+    
+    ion-card-title{
+        font-size: 14px;
+        margin-top: 5px;
+    }   
+    
+    
+    .itemDetail{
+        height: 80px;  
+        width: 100%;   
+        margin-top: 5px;   
+        padding-top: 25px;
+        padding-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+        background-color: #eee;
+        
+    }
+    
+    .titleItem{
+        font-size: 12px;    
+    }
+    
+    .titleDescription{
+        font-size: 12px;   
+    }
+    
+    .boxCardItem{
+        background-color: #342c5b;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;    
+        padding: 1px;
+        margin-bottom: 15px;
+        height: auto;
+    }
+    
+    
+    //parte trackin abaixo
+    
+    .container{
+        //background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        width:100%;
+        overflow:hidden;
+        margin: 0 ; 
+        height: 100px;
+          
+    }
+    
+    .container2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        //background-color: blue;        
+        width: 100%;
+    }
+    
+    .html {
+        font-size: 1.7rem;
+        color: #ddd
+    }
+    
+    .proguessbar {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 1px;
+        max-width: 100%;
+        width:470px;
+        padding: 10px;
+        //background-color: gray;       
+    }
+    
+    //criando circles
+    .circle {
+        background-color: #fff;
+        color: #ddd;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        border: 3px solid #ddd;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s ease;        
+    }
+    
+    //quando tal circulo estiver com a classe active
+    .circle.active {
+        border-color: #342c5b ;    
+    }
+    
+    .html.active{
+        color:#342c5b;
+    }
+    
+    .circle.active{
+        background-color: #fff;   
+    }
+    //fim circulo nos icones
+    
+    //criando linha
+    .proguessbar li:before{
+        //content: '';
+        width: 30px;
+        height: 30px;
+        float: left;
+        line-height: 30px;
+        border: 1px solid #ddd;
+        display: block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        background-color: #fff;
+    }
+    
+    .proguessbar li::after{
+        content: '';
+        position: absolute;
+        width: 27%;
+        height: 2px;
+        background-color: #ddd;
+        top: 35px;
+        margin-right: 90px;
+        z-index: -1;
+    }
+    
+    .proguessbar li:first-child::after{
+        content: none;
+    }
+    
+    .proguessbar li.active{
+        color: #342c5b;
+    }
+    
+    .proguessbar li.active::before{
+        border-color: #342c5b;
+    }
+    
+    .proguessbar li.active + li::after{
+        background-color: #342c5b;
+    }
+    //fim do codigo da linha
+    
+    //#########################################
+    //parte do texto
+    .textAbaixo {//igual o proguessbar a configuracao
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 30px;
+        max-width: 100%;
+        width:80%;
+        font-size: 15px;
+        //padding: 20px;  
+        //background-color: yellowgreen;
+        padding-top: 0;
+        padding-bottom: 0; 
+        padding-left: 31%;   
+        padding-right: 31%;
+    }  
 }
 
-.container2{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    //background-color: blue;
-}
-
-.html {
-    font-size: 1.2rem;
-    color: #ddd
-}
-
-.proguessbar {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    margin-bottom: 1px;
-    max-width: 100%;
-    width:250px;
-    padding: 10px;
-    //background-color: gray;       
-}
-
-//criando circles
-.circle {
-    background-color: #fff;
-    color: #ddd;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    border: 3px solid #ddd;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.4s ease;
-}
-
-//quando tal circulo estiver com a classe active
-.circle.active {
-    border-color: #342c5b ;    
-}
-
-.html.active{
-    color:#342c5b;
-}
-
-.circle.active{
-    background-color: #fff;   
-}
-//fim circulo nos icones
-
-//criando linha
-.proguessbar li:before{
-    //content: '';
-    width: 30px;
-    height: 30px;
-    float: left;
-    line-height: 30px;
-    border: 1px solid #ddd;
-    display: block;
-    text-align: center;
-    margin: 0 auto 10px auto;
-    border-radius: 50%;
-    background-color: #fff;
-}
-
-.proguessbar li::after{
-    content: '';
-    position: absolute;
-    width: 27%;
-    height: 2px;
-    background-color: #ddd;
-    top: 25px;
-    margin-right: 90px;
-    z-index: -1;
-}
-
-.proguessbar li:first-child::after{
-    content: none;
-}
-
-.proguessbar li.active{
-    color: #342c5b;
-}
-
-.proguessbar li.active::before{
-    border-color: #342c5b;
-}
-
-.proguessbar li.active + li::after{
-    background-color: #342c5b;
-}
-//fim do codigo da linha
-
-//#########################################
-//parte do texto
-.textAbaixo {//igual o proguessbar a configuracao
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    margin-bottom: 30px;
-    max-width: 100%;
-    width:258px;
-    font-size: 10px;
-    padding: 30px;  
-    //background-color: yellowgreen;
-    padding-top: 0;
-    padding-bottom: 0; 
-    padding-left: 10px;   
-    padding-right: 5px;
-}
 
 

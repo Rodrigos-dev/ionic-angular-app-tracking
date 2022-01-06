@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { OverlayService } from './overlay.service';
 
 @Injectable({
@@ -118,14 +119,39 @@ export class ApiService {
     })
   }  
 
+  updatePassword(data: any, id: string){
+    console.log('aaaaa', data)
+    return new Promise<void>((resolve, reject) => {
+      this.http.put(`${this.apiLink}user/password/${id}`, JSON.stringify(data),this.headersOption()).subscribe((result: any) => {
+          resolve(result)
+        }, (error) => {
+          reject(error)
+          console.log(error)
+          this.overlayService.toast({ message: 'Ocorreu algum erro tente novamente mais tarde' })
+        })        
+    })
+  } 
+
   async deleteUser(id) {
     try {
       return await this.http
         .delete(`${this.apiLink}user/${id}`, this.headersOption())
         .toPromise();
     } catch (error) {
+      this.overlayService.toast({ message: 'Erro ao deletar conta tente novamente mais tarde!' })
       return error;
     }
+  }
+
+  // UPDATE APP
+
+  async getUpdateApp(appId: string): Promise<any> {
+    return await this.http
+      .get(`${environment.urlBase}/update-app/verify/${appId}`, {})
+      .toPromise()
+      .then((response) => {
+        return JSON.parse(JSON.stringify(response))
+      })
   }
     
 }

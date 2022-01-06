@@ -47,14 +47,8 @@ export class UserPage implements OnInit {
       email: [this.user.email, [Validators.required, Validators.email]],
       phone: [this.user.phone, [Validators.required]],
       cpf: [this.user.cpf, [Validators.required]],
-      password: [
-        this.user.password,
-        [Validators.required, Validators.minLength(6)],
-      ],
-      confirmPassword: [
-        this.user.confirmPassword,
-        [Validators.required, Validators.minLength(6)],
-      ],
+      password: [this.user.password,[Validators.required, Validators.minLength(6)]],
+      confirmPassword: [this.user.confirmPassword,[Validators.required, Validators.minLength(6)]],
 
       postalcode: [this.user.postalcode, [Validators.required]],
       street: [this.user.street, [Validators.required]],
@@ -71,6 +65,15 @@ export class UserPage implements OnInit {
 
   backPag() {
     this.router.navigate(['/login']);
+  }  
+
+
+  async onPassKeyPress(keycode: any) {    
+    if (keycode === 13) {
+      if (this.formUser.dirty && this.formUser.valid){
+        this.createUser()
+      }      
+    }
   }
 
   async createUser() {
@@ -119,14 +122,15 @@ export class UserPage implements OnInit {
 
     if (cep.length === 8) {
       return this.apiService.buscaCep(cep).then((result: any) => {
-        console.log('aaa', result);
+
+        if (result.erro === true) {
+          this.overlayService.toast({ message: 'Cep não encontrado' })
+        }
 
         let street = <HTMLInputElement>document.getElementById('street');
         street.value = result.logradouro;
 
-        let neighborhood = <HTMLInputElement>(
-          document.getElementById('neighborhood')
-        );
+        let neighborhood = <HTMLInputElement>(document.getElementById('neighborhood'));
         neighborhood.value = result.bairro;
 
         let city = <HTMLInputElement>document.getElementById('city');
@@ -135,6 +139,20 @@ export class UserPage implements OnInit {
         let state = <HTMLInputElement>document.getElementById('state');
         state.value = result.uf;
       });
+
+    } else {
+
+      let street = <HTMLInputElement>document.getElementById('street');
+      street.value = '';
+
+      let neighborhood = <HTMLInputElement>(document.getElementById('neighborhood'));
+      neighborhood.value = '';
+
+      let city = <HTMLInputElement>document.getElementById('city');
+      city.value = '';
+
+      let state = <HTMLInputElement>document.getElementById('state');
+      state.value = '';
     }
   }
 }

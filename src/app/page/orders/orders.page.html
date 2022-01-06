@@ -1,63 +1,76 @@
-
 <ion-header>
   <div class="containerHeader">
-    
-  <ion-toolbar class="new-background-color  aaa">
 
-    <ion-buttons slot="end">
-      <ion-button (click)="logout()">
-        <ion-icon slot="end" name="log-out"></ion-icon>
-      </ion-button>
-    </ion-buttons>    
+    <ion-toolbar class="new-background-color">
+      <div class="toolbarBody">
+        <div class="tollbarBox1">
+          <div class="tollbarBox2">
+            <ion-buttons slot="end">
+              <ion-button (click)="logout()">
+                <ion-icon slot="end" name="log-out"></ion-icon>
+              </ion-button>
+            </ion-buttons>
 
-    <div class="divToolbarTitle">
-      <ion-title><strong>Ola {{userName}}</strong></ion-title>
-    </div>    
+            <div class="divToolbarTitle">
+              <ion-title><strong>Ola {{userName}}</strong></ion-title>
+            </div>
 
-    <ion-buttons slot="start">
-      <ion-button (click)="toogleBlocks()">
-        <ion-icon slot="start" name="menu-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+            <ion-buttons slot="start">
+              <ion-button (click)="toogleBlocks()">
+                <ion-icon slot="start" name="menu-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </div><!--fim tollbarBox2-->
+        </div><!--fim tollbarBox1-->
+      </div><!--fim toolbarBody-->
+    </ion-toolbar>
 
-  </ion-toolbar >  
 
-  <div class="boxMenu blocks" #blocks slot="start" >
-    <div class="update">
-      <ion-button class="textMenu" fill="clear" (click)="updateUser()">
-      <ion-icon class="iconMenu"slot="start" name="create-outline" ></ion-icon>
-        Atualizar Dados
-      </ion-button>
+    <div class="boxMenu blocks" #blocks slot="start">
+      <div class="update">
+        <ion-button class="textMenu" fill="clear" (click)="updateUser()">
+          <ion-icon class="iconMenu" slot="start" name="create-outline"></ion-icon>
+          Atualizar Dados
+        </ion-button>
+      </div>
+
+      <div class="update">
+        <ion-button class="textMenu" fill="clear" (click)="passwordChange()">
+          <ion-icon class="iconMenu" slot="start" name="create-outline"></ion-icon>
+          Trocar Senha
+        </ion-button>
+      </div>
+
+      <div class="update">
+        <ion-button class="textMenu" fill="clear" (click)="deleteUser()">
+          <ion-icon class="iconMenu" slot="start" name="trash-outline"></ion-icon>
+          Desativar Conta
+        </ion-button>
+      </div>
     </div>
-    
-    <div class="update">      
-      <ion-button class="textMenu" fill="clear" (click)="deleteUser()">
-        <ion-icon class="iconMenu"slot="start" name="trash-outline"></ion-icon>
-        Desativar Conta
-      </ion-button>
-    </div>
+
+    <div class="divToolbar"></div>
+    <ion-toolbar class="ion-text-center title pedido">
+      <ion-title><strong>Pedidos</strong></ion-title>
+    </ion-toolbar>
   </div>
-  
-  <div class="divToolbar"></div>
-  <ion-toolbar  class="ion-text-center title pedido">
-    <ion-title><strong>Pedidos</strong></ion-title>
-  </ion-toolbar>
-
-</div>
-
 </ion-header>
 
-
-
 <ion-content>
-  <ion-row class="margin-l">
-    <ion-card class="ion-text-center card" style="width:100%" *ngFor="let order of orders">
-      <ion-card-title><strong>Pedido Nº {{ order.id}}</strong></ion-card-title>      
-      <ion-card-content>
-        <ion-button (click)="openTracking(order.id)" expand="block" color="success">
-          <ion-icon name="car"></ion-icon>Rastreamento
-        </ion-button>
-      </ion-card-content>
-    </ion-card>
-  </ion-row>
+  <div class="cardBody">
+    <div class=" boxCard">
+      <ion-card class="ion-text-center card" *ngFor="let order of orders">
+        <!---style="width:100%" -->
+        <div class="divCard">
+          <ion-card-title><strong>Pedido Nº {{ order.id}}</strong></ion-card-title>
+          <ion-card-content>
+            <ion-card-subtitle><strong>{{order.marketplace}}</strong></ion-card-subtitle>
+            <ion-button (click)="openTracking(order.id)" expand="block" color="success">
+              <ion-icon name="car"></ion-icon>Rastreamento
+            </ion-button>
+          </ion-card-content>
+        </div>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>

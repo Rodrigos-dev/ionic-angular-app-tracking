@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [ 
   
   {
     path: 'login',
-    loadChildren: () => import('./page/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./page/login/login.module').then( m => m.LoginPageModule),canActivate: [LoginGuard]
   },
   {
     path: '',
@@ -28,9 +29,10 @@ const routes: Routes = [
     path: 'update-user',
     loadChildren: () => import('./page/update-user/update-user.module').then( m => m.UpdateUserPageModule),canActivate: [AuthGuard]
   },
-
-
-  
+  {
+    path: 'password-change',
+    loadChildren: () => import('./page/password-change/password-change.module').then( m => m.PasswordChangePageModule),canActivate: [AuthGuard]
+  },  
 ];
 
 @NgModule({

@@ -5,6 +5,8 @@ export interface User {
     phone?: string;
     password?: string;
     confirmPassword?: string;
+    newPassword?: string;
+    newConfirmPassword?: string;
     street?: string;
     // eslint-disable-next-line id-blacklist
     number?: string;

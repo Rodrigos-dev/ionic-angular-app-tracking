@@ -46,8 +46,6 @@ export class UpdateUserPage implements OnInit {
 
     this.getUserData()
 
-    console.log(this.user, 'wwwwwww')
-
     this.formUser.get('name').setValue(this.user.name)
     this.formUser.get('email').setValue(this.user.email)
     this.formUser.get('phone').setValue(this.user.phone)
@@ -72,6 +70,14 @@ export class UpdateUserPage implements OnInit {
     console.log('tese', this.user.name)
   }
 
+  async onPassKeyPress(keycode: any) {    
+    if (keycode === 13) {
+      if (this.formUser.dirty && this.formUser.valid){
+        this.updateUser()
+      }      
+    }
+  }
+
   createForm(user): void {
     user = this.user
     this.formUser = this.fBuider.group({
@@ -94,7 +100,7 @@ export class UpdateUserPage implements OnInit {
   }
 
   async updateUser() {
-    
+
     const userData = JSON.parse(localStorage.getItem('token'))
 
     const loading = this.overlayService.loading();
@@ -147,20 +153,20 @@ export class UpdateUserPage implements OnInit {
     }
   }
 
-
   async buscaCep() {
     const cep = this.formUser.value.postalcode.replace(/[^0-9]/g, '');
 
     if (cep.length === 8) {
       return this.apiService.buscaCep(cep).then((result: any) => {
-        console.log('aaa', result);
+
+        if (result.erro === true) {
+          this.overlayService.toast({ message: 'Cep não encontrado' })
+        }
 
         let street = <HTMLInputElement>document.getElementById('street');
         street.value = result.logradouro;
 
-        let neighborhood = <HTMLInputElement>(
-          document.getElementById('neighborhood')
-        );
+        let neighborhood = <HTMLInputElement>(document.getElementById('neighborhood'));
         neighborhood.value = result.bairro;
 
         let city = <HTMLInputElement>document.getElementById('city');
@@ -169,6 +175,20 @@ export class UpdateUserPage implements OnInit {
         let state = <HTMLInputElement>document.getElementById('state');
         state.value = result.uf;
       });
+
+    } else {
+
+      let street = <HTMLInputElement>document.getElementById('street');
+      street.value = '';
+
+      let neighborhood = <HTMLInputElement>(document.getElementById('neighborhood'));
+      neighborhood.value = '';
+
+      let city = <HTMLInputElement>document.getElementById('city');
+      city.value = '';
+
+      let state = <HTMLInputElement>document.getElementById('state');
+      state.value = '';
     }
   }
 

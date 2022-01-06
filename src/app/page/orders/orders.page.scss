@@ -1,86 +1,476 @@
-.pedido {
-    height: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+@media (min-width: 200px) and (max-width: 767px){   
+    .toolbarBody{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; 
+        //background-color: orange;
+        width: 100%;
+    }
 
-.divToolbar{
-    background-color: #fff;
-    height: 1px;
-}
+    .tollbarBox1{
+        //background-color: black;        
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+    }
 
-.new-background-color{
-    --background: #342c5b; 
-    color: #fff;     
-}
+    .tollbarBox2{
+        //background-color: yellow;
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;        
+    }     
+    
+    .new-background-color{
+        --background: #342c5b; 
+        color: #fff;            
+    }
+    
+    .divToolbarTitle{
+        //background-color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .boxMenu{
+        background-color: #342c5b;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;     
+        height: 0;        
+    
+        .textMenu{
+            font-size: 12px;
+            margin: 5px;
+            color: #fff;       
+        }
+    }      
+    
+    .update{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+            
+        .iconMenu{
+            color: #fff;
+            font-size: 13px
+        }
+    }
+    
+    ion-title{
+        font-size: 15px;      
+    }
 
-.divToolbarTitle{
-    //background-color: white;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    .cardBody{
+        //background-color: black;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    } 
+    
+    .boxCard{
+        //background-color: yellow;
+        margin-top: 15px;
+        width: 90%;                     
+    } 
+    
+    .card {
+        flex: 1 0 30%;
+        padding: 10px;
+        height: 100px;
+        margin-bottom: 5px;
+        margin-top: 10px;                
+    }
+    
+    ion-card-title{
+        font-size: 12px;
+        margin-bottom: -15px;       
+    }
+    
+    ion-card-subtitle{
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-top: 5px;       
+    }
+    
+    ion-button{
+        display: block;
+        height: 20px;
+        width: 100%;            
+    } 
     
 }
 
-.boxMenu{
-    background-color: #342c5b;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 5x;
-    padding-bottom: 5px; 
-    height: 0;   
+@media (min-width: 768px) and (max-width: 1023px){
     
+    .toolbarBody{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; 
+        //background-color: orange;
+        width: 100%;
+    }
 
-    .textMenu{
-        font-size: 8px;
-        margin: 5px;
-        color: #fff;       
+    .tollbarBox1{
+        //background-color: black;        
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+    }
+
+    .tollbarBox2{
+        //background-color: yellow;
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;        
+    }     
+    
+    .new-background-color{
+        --background: #342c5b; 
+        color: #fff;            
+    }
+    
+    .divToolbarTitle{
+        //background-color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .boxMenu{
+        background-color: #342c5b;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;     
+        height: 0;        
+    
+        .textMenu{
+            font-size: 12px;
+            margin: 5px;
+            color: #fff;       
+        }
+    }        
+    
+    .update{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+            
+        .iconMenu{
+            color: #fff;
+            font-size: 13px
+        }
+    }
+
+    .cardBody{
+        //background-color: black;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    } 
+    
+    .boxCard{
+        //background-color: yellow;
+        margin-top: 30px;
+        width: 90%;  
+        display: flex;
+        flex-wrap: wrap;              
+    }
+    
+    ion-title{
+        font-size: 15px;      
+    }
+    
+    .card {
+        flex: 1 0 30%;
+        padding: 10px;
+        height: 100px;
+        margin-bottom: 5px;
+        margin-top: 10px;                
+    }
+    
+    ion-card-title{
+        font-size: 12px;
+        margin-bottom: -15px;       
+    }
+    
+    ion-card-subtitle{
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-top: 5px;       
+    }
+    
+    ion-button{
+        display: block;
+        height: 20px;
+        width: 100%;            
     }
 }
 
-.menuSome{
-    display: none;
-}
-
-.update{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-
-    .iconMenu{
-        color: #fff;
-        font-size: 13px
+@media (min-width: 1024px) and (max-width: 1300px){
+    .toolbarBody{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; 
+        //background-color: orange;
+        width: 100%;
     }
+
+    .tollbarBox1{
+        //background-color: black;        
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+    }
+
+    .tollbarBox2{
+        //background-color: yellow;
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;        
+    }     
+    
+    .new-background-color{
+        --background: #342c5b; 
+        color: #fff;            
+    }
+    
+    .divToolbarTitle{
+        //background-color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .boxMenu{
+        background-color: #342c5b;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;     
+        height: 0;        
+    
+        .textMenu{
+            font-size: 12px;
+            margin: 5px;
+            color: #fff;       
+        }
+    }        
+    
+    .update{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+            
+        .iconMenu{
+            color: #fff;
+            font-size: 13px
+        }
+    }
+
+    .cardBody{
+        //background-color: black;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    } 
+    
+    .boxCard{
+        //background-color: yellow;
+        margin-top: 30px;
+        width: 70%;  
+        display: flex;
+        flex-wrap: wrap;              
+    }
+    
+    ion-title{
+        font-size: 15px;      
+    }
+    
+    .card {
+        flex: 1 0 30%;
+        padding: 10px;
+        height: 100px;
+        margin-bottom: 5px;
+        margin-top: 10px;                
+    }
+    
+    ion-card-title{
+        font-size: 12px;
+        margin-bottom: -15px;       
+    }
+    
+    ion-card-subtitle{
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-top: 5px;       
+    }
+    
+    ion-button{
+        display: block;
+        height: 20px;
+        width: 100%;            
+    }  
 }
 
-ion-title{
-    font-size: 15px;    
+@media (min-width: 1301px){
+    .toolbarBody{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; 
+        //background-color: orange;
+        width: 100%;
+    }
+
+    .tollbarBox1{
+        //background-color: black;        
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 55%;
+    }
+
+    .tollbarBox2{
+        //background-color: yellow;
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;        
+    }     
+    
+    .new-background-color{
+        --background: #342c5b; 
+        color: #fff;            
+    }
+    
+    .divToolbarTitle{
+        //background-color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .boxMenu{
+        background-color: #342c5b;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;     
+        height: 0;        
+    
+        .textMenu{
+            font-size: 12px;
+            margin: 5px;
+            color: #fff;       
+        }
+    }        
+    
+    .update{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+            
+        .iconMenu{
+            color: #fff;
+            font-size: 13px
+        }
+    }
+
+    .cardBody{
+        //background-color: black;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    } 
+    
+    .boxCard{
+        //background-color: yellow;
+        margin-top: 40px;
+        width: 55%;  
+        display: flex;
+        flex-wrap: wrap;              
+    }
+    
+    ion-title{
+        font-size: 15px;      
+    }
+    
+    .card {
+        flex: 1 0 30%;
+        padding: 10px;
+        height: 100px;
+        margin-bottom: 5px;
+        margin-top: 10px;                
+    }
+    
+    ion-card-title{
+        font-size: 12px;
+        margin-bottom: -15px;       
+    }
+    
+    ion-card-subtitle{
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-top: 5px;       
+    }
+    
+    ion-button{
+        display: block;
+        height: 20px;
+        width: 100%;            
+    }  
 }
 
-.card {
-    padding: 15px;
-    height: 80px;
-    margin-bottom: 0;
-    margin-top: 5px;    
-}
 
-ion-card-title{
-    font-size: 12px;
-    margin-bottom: -10px;       
-}
-
-ion-button{
-    display: block;
-    height: 20px;    
-}
 
 
 

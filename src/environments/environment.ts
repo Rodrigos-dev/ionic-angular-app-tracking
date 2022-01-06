@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  urlBase: 'https://api-staging.4logistica.com.br',
+  urlCEP: 'https://viacep.com.br/ws/',
 };
 
 /*

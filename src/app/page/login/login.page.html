@@ -1,36 +1,52 @@
 <ion-content class="swiper-no-swiping">
 
-  <div class="body">
-    <div class="container top ion-text-center" *ngIf="!Keybord">
+  <ion-grid class="body">
+
+    <div class="sizeControl">
+
+    <ion-row>
       <img class="logo" src="../../assets/logo Branco.png">
+    </ion-row>
 
+    <ion-row>
       <h2><strong>Login</strong></h2>
+    </ion-row>  
 
-      <div class="boxLogin">
-        <form [formGroup]="formLogin">
-          <ion-item class="ion-margin-top" lines="none">
-            <ion-input type="cpf" placeholder="CPF" formControlName="username" autofocus></ion-input>
-            <ion-note slot="end" color="danger"
-              *ngIf="!formLogin.controls.username.dirty && formLogin.controls.username.hasError('required')">*
-            </ion-note>            
-          </ion-item>
-          <ion-item class="ion-margin-top" lines="none">
-            <ion-input type="password" placeholder="Senha" formControlName="password"></ion-input>
-            <ion-note slot="end" color="danger"
-              *ngIf="!formLogin.controls.password.dirty && formLogin.controls.password.hasError('required')">*
-            </ion-note>
-          </ion-item>
-        </form>
+    <ion-grid class="boxLogin">
+
+      <form [formGroup]="formLogin">
+
+        <ion-item class="formRows" lines="none">
+          <ion-input type="cpf" placeholder="CPF" formControlName="username" autofocus ></ion-input>
+          <ion-note slot="end" color="danger"
+            *ngIf="!formLogin.controls.username.dirty && formLogin.controls.username.hasError('required')">*
+          </ion-note>
+        </ion-item>
+
+        <ion-item class="formRows" lines="none">
+          <ion-input type="password" placeholder="Senha" formControlName="password" lines="none" (keypress)="onPassKeyPress($event.keyCode)"></ion-input>
+          <ion-note slot="end" color="danger"
+            *ngIf="!formLogin.controls.password.dirty && formLogin.controls.password.hasError('required')">*
+          </ion-note>            
+        </ion-item>
+
         <ion-button class="ion-margin-top buttonLogin" (click)="login()" color="light" expand="block"
           [disabled]="formLogin.invalid">
           <strong class="a">Entrar</strong>
         </ion-button>
 
-        <ion-label color="light" class="registerBox">Não tem uma conta? <ion-button (click)="toRegister()" fill="clear" class="light ion-no-padding textRegister">
+      </form><!--fim do form-->
+
+      <ion-label color="light" class="registerBox">Não tem uma conta? 
+        <ion-button (click)="toRegister()" fill="clear" class="light ion-no-padding textRegister">
           Registre-se
-        </ion-button></ion-label>
-      </div>
-    </div>
+        </ion-button>
+      </ion-label>
+      
+    </ion-grid><!--fim do grid boxLogin-->
+
   </div>
+
+  </ion-grid><!--fim grid class body-->
 
 </ion-content>
