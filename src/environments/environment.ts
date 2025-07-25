@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  urlBase: 'https://api-staging.4logistica.com.br',
+  urlBase: 'http://localhost:3000',
   urlCEP: 'https://viacep.com.br/ws/',
 };
 
